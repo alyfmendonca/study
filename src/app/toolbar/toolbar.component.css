@@ -1,0 +1,46 @@
+.toolbar-logo {
+  max-height: 40px;
+  margin-left: 2.5%;
+}
+
+.div-toolbar-text {
+  position: absolute;
+  right: 2.5%;
+  font-size: small;
+}
+
+.toolbar-text {
+}
+
+.toolbar-line {
+  width: auto;
+  height: 2px;
+}
+
+.toolbar-line-white {
+  width: auto;
+  height: 2px;
+  background-color: white;
+}
+
+.toolbar-div {
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.toolbar-div:hover .toolbar-line {
+  background-color: white;
+}
+
+.logout-text {
+  cursor: pointer;
+}
+
+.div-separator {
+  float: top;
+  margin-top: 90px;
+}
+

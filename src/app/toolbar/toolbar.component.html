@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="toolbar">
+
+  <mat-toolbar-row>
+    <img class="toolbar-logo" src="assets/img/logo-branca-deitada.png">
+    <div class="div-toolbar-text">
+      <div class="toolbar-div" (click)="optionSelected(0)">
+        <span class="toolbar-text">SÉRIES E EXAMES</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="0==selectedOption"></div>
+      </div>
+      <div class="toolbar-div" (click)="optionSelected(1)">
+        <span class="toolbar-text">IMPRIMIR</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="1==selectedOption"></div>
+      </div>
+      <div class="toolbar-div" (click)="optionSelected(2)">
+        <span class="toolbar-text" >FORMATADOS</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="2==selectedOption"></div>
+      </div>
+      <div class="toolbar-div" (click)="optionSelected(3)">
+        <span class="toolbar-text" >NÃO FORMATADOS</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="3==selectedOption"></div>
+      </div>
+      <div class="toolbar-div" (click)="optionSelected(4)">
+        <span class="toolbar-text" >CONFIGURAÇÕES</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="4==selectedOption"></div>
+      </div>
+      <div class="toolbar-div" (click)="optionSelected(5)">
+        <span class="toolbar-text" >SAIR</span>
+        <div class="toolbar-line" [class.toolbar-line-white]="5==selectedOption"></div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<div class="div-separator"></div>
+<router-outlet></router-outlet>

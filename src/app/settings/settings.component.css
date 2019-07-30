@@ -1,0 +1,47 @@
+.setting-card {
+    width: 95%;
+    margin-top: 90px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.aetitles-card {
+    width: 95%;
+    margin-top: 15px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.setting-div {
+    display: flex;
+    align-items: center;
+}
+
+.setting-card-h3 {
+    display: inline;
+    color: #004186;
+    font-weight: normal;
+}
+
+.setting-save-button {
+    margin-left:auto; 
+    margin-right:0;
+    background-color: #DF8D2C;
+    color: white;
+    width: 170px;
+    height: 30px;
+    padding: 0;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.setting-input {
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 8px;
+    width: 100%;
+}

@@ -1,0 +1,66 @@
+.login-card {
+  position: fixed;
+  margin-top: 90px;
+  left: 50%;
+  padding: 44px 60px 44px 60px;
+  transform: translate(-50%);
+}
+
+.login-logo {
+  max-width: 150px;
+  max-height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.login-forgot-password {
+  color: #DF8D2C;
+  font-size: small;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.login-div {
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-div-remember {
+  margin-top: 28px;
+}
+
+::placeholder {
+  color: #BDBDBD;
+}
+
+.login-input {
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 24px;
+}
+
+.login-rigthside {
+  float: right;
+}
+
+.login-div-button {
+  margin-top: 28px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.login-text {
+  color: #BDBDBD;
+  font-size: small;
+}
+
+.login-sidenav-container {
+  background-color: blue;
+}
+

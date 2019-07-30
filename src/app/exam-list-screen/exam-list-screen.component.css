@@ -1,0 +1,53 @@
+.card {
+  float: top;
+  width: 94%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+table {
+  float: bottom;
+  position:absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  width: 95%;
+  margin-top: 24px;
+}
+
+.header-table {
+  background-color: #004186;
+}
+
+.mat-header-row th {
+  color: white;
+  font-weight: bold;
+}
+
+.mat-row:nth-child(even){
+  background-color: #C3CEDF;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: white;
+}
+
+.line {
+  border-left-style: solid;
+  border-left-color: green;
+  border-left-width: 5px;
+}
+
+.icon {
+}
+
+.customWidthClass{
+  flex: 0 0 35px;
+  padding: 0 0 0 0 !important;
+}
+
+
+
+
+

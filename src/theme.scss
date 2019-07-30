@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$md-multiformato: (
+  50 : #e0e8f0,
+  100 : #b3c6db,
+  200 : #80a0c3,
+  300 : #4d7aaa,
+  400 : #265e98,
+  500 : #004186,
+  600 : #003b7e,
+  700 : #003273,
+  800 : #002a69,
+  900 : #001c56,
+  A100 : #88a3ff,
+  A200 : #557cff,
+  A400 : #2254ff,
+  A700 : #0841ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+
+
+
+$my-app-primary: mat-palette($md-multiformato, 500);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);

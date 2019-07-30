@@ -1,0 +1,36 @@
+<div class="exam-div">
+  <mat-card class="card card-midia">
+
+  </mat-card>
+
+  <mat-card class="card card-options">
+
+  </mat-card>
+
+  <mat-card class="card card-images">
+    <div class="div-grid">
+      <mat-grid-list cols="4" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'16px'">
+        <mat-grid-tile
+          *ngFor="let tile of tiles"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows">
+          <div class="center-cropped" style="background-image: url('http://placehold.it/200x200');">
+            <img src="assets/img/corpo.png">
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="div-buttons">
+      <div class="div-right">
+        <button mat-raised-button [color]="color">PREVIEW</button>
+        <button mat-raised-button [color]="color">SALVAR</button>
+        <button mat-raised-button [color]="color" (click)="openDialog()">IMPRIMIR</button>
+      </div>
+    </div>
+
+  </mat-card>
+
+  <mat-card class="card card-tools">
+
+  </mat-card>
+</div>

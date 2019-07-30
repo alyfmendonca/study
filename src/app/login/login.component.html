@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="toolbar">
+
+</mat-toolbar>
+
+<mat-card class="login-card">
+  <img class="login-logo" src="assets/img/logo.png">
+  <div class="login-div">
+    <input placeholder="LOGIN" class="login-input" [(ngModel)]="login">
+    <input placeholder="SENHA" [type]="hide ? 'password' : 'text'" class="login-input" [(ngModel)]="password">
+    <div>
+      <a [href]="forgotPasswordLink" class="login-forgot-password login-rigthside">Esqueceu sua senha?</a>
+    </div>
+    <div class="login-div-remember">
+      <span class="login-text">Lembrar de mim</span>
+      <mat-slide-toggle
+        class="login-rigthside"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled"
+        (change)="checked = !checked">
+      </mat-slide-toggle>
+    </div>
+    <div class="login-div-button">
+      <button mat-raised-button [color]="color" (click)="onClick()" class="login-button login-rigthside">ENTRAR</button>
+    </div>
+  </div>
+</mat-card>
+
