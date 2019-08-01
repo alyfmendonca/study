@@ -9,7 +9,7 @@
 
   <mat-card class="card card-images">
     <div class="div-grid">
-      <mat-grid-list cols="4" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'16px'">
+      <mat-grid-list [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
         <mat-grid-tile
           *ngFor="let tile of tiles"
           [colspan]="tile.cols"
@@ -18,7 +18,7 @@
             <img src="assets/img/corpo.png">
           </div>
         </mat-grid-tile>
-      </mat-grid-list>
+      </mat-grid-list> 
     </div>
     <div class="div-buttons">
       <div class="div-right">
@@ -31,6 +31,66 @@
   </mat-card>
 
   <mat-card class="card card-tools">
-
+    <div class="containerPaiTools">
+      <div class="formToolsGrid">
+        <h3>Ferramentas</h3>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
+        </mat-form-field>
+        <mat-form-field> 
+            <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+          </mat-form-field>
+      </div>
+      <div class="formToolsEscopo">
+        <h3>Escopo por Frame</h3>
+        <mat-radio-group [(ngModel)]="selectedScope"> 
+        <mat-radio-button class="rdButtonScopes" *ngFor="let scope of scopes" [value]="scope">
+          {{scope.text}}
+        </mat-radio-button> 
+      </mat-radio-group>
+      <section class="scopeSection">
+        Sincronizar entre séries 
+          <mat-slide-toggle
+              color="primary"
+              [checked]="checked"
+              [disabled]="disabled">
+          </mat-slide-toggle>
+        </section>
+      </div>
+      <div class="formToolsIcons">
+            <div class="incosOne">
+              <img src="assets\icons\Ativo 47.png" >
+              <img src="assets\icons\Ativo 46.png" >
+              <img src="assets\icons\Ativo 50.png" style="transform: rotate(90deg);">
+            </div>
+            <div class="iconsTwo">
+                <img src="assets\icons\Ativo 41.png" >
+                <img src="assets\icons\Ativo 28.png" >
+                <img src="assets\icons\Ativo 48.png" >
+            </div>
+            <div class="iconsThree">
+                <img src="assets\icons\Ativo 40.png" >
+                <img src="assets\icons\Ativo 29.png" >
+                <img src="assets\icons\Ativo 30.png" >
+            </div>
+      </div>
+      <div class="formUnderIcons">
+          <div class="underRadios">
+            <mat-radio-group [(ngModel)]="selectedEditor"> 
+                <mat-radio-button class="rdButtonScopes" *ngFor="let editor of editors" [value]="editor">
+                  {{editor.text}}
+                </mat-radio-button> 
+              </mat-radio-group>
+          </div>
+              <section class="scopeSection">
+                Só primeira imagem 
+                  <mat-slide-toggle
+                      color="primary"
+                      [checked]="checkedUnder"
+                      [disabled]="disabledUnder"> 
+                  </mat-slide-toggle>
+                </section>
+      </div>
+    </div>
   </mat-card>
 </div>

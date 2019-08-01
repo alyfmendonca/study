@@ -54,6 +54,7 @@
 
 .div-grid {
   flex: 9;
+  overflow: scroll;
 }
 
 .center-cropped {
@@ -63,16 +64,94 @@
   background-repeat: no-repeat;
   overflow: hidden;
   margin: 8px 8px 8px 8px;
+  position: relative;
 }
 
 /* Set the image to fill its parent and make transparent */
 .center-cropped img {
-  min-height: 100%;
-  min-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  position: absolute;
   /* IE 8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   /* IE 5-7 */
   filter: alpha(opacity=0);
   /* modern browsers */
   opacity: 1;
+}
+
+.containerPaiTools{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.formToolsGrid h3,
+.formToolsEscopo h3{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold; 
+  font-size: 14px;
+  line-height: 16px;
+  color: #004186;
+}
+
+.formToolsEscopo input,
+.formToolsGrid input{
+  font-weight: 300;
+  font-size: 12px;  
+  line-height: 14px;
+  color: #4F4F4F;
+}
+
+.formToolsEscopo .rdButtonScopes{
+  margin: 0px 0px 5px 0px;
+}
+
+.formToolsIcons{
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  justify-content: space-evenly;
+}
+
+.formToolsIcons .incosOne,
+.formToolsIcons .iconsTwo,
+.formToolsIcons .iconsThree{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.formToolsIcons img{
+  width: 25px;
+  height: 30px;
+}
+
+.formToolsIcons img:hover{
+  cursor: pointer;
+}
+
+.scopeSection{
+  font-weight: 300;
+  font-size: 12px;  
+  line-height: 14px;
+  color: #4F4F4F;
+}
+
+.formUnderIcons{
+  font-weight: 300;
+  font-size: 12px;  
+  line-height: 14px;
+  color: #4F4F4F;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.underRadios{
+  display: flex;
+  flex-direction: column;
 }

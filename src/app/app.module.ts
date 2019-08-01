@@ -20,7 +20,7 @@ import {FormsModule} from "@angular/forms";
 import {StudyService} from "./service/study.service";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {PopupEditComponent} from "./popup-edit/popup-edit.component";
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import {PopupEditComponent} from "./popup-edit/popup-edit.component";
     MatTableModule,
     MatGridListModule,
     FlexLayoutModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   entryComponents: [
     PopupEditComponent,
