@@ -79,6 +79,8 @@ export class ExamComponent implements OnInit {
   selectedScope:number = 1;
   selectedEditor:number = 1;
 
+  selectedSource:string = "";
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -127,6 +129,15 @@ export class ExamComponent implements OnInit {
     }else{
       //nada
     }
+  }
+
+  selectSelectionImage(element){
+    this.selectedSource = element.src.substring(element.src.indexOf("assets"));
+  }
+
+  selectGridImage(element){
+      element.children[0].src = this.selectedSource;
+      element.className = "center-cropped-wsrc";
   }
 
 }

@@ -65,10 +65,30 @@
   overflow: hidden;
   margin: 8px 8px 8px 8px;
   position: relative;
+  background-image: url('http://placehold.it/200x200');
+  transition: transform 0.3s;
+}
+
+.center-cropped-wsrc{
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin: 8px 8px 8px 8px;
+  position: relative;
+  background-image: unset;
+  transition: transform 0.3s;
+}
+
+.center-cropped:hover,
+.center-cropped-wsrc:hover {
+  transform: scale(1.1);
 }
 
 /* Set the image to fill its parent and make transparent */
-.center-cropped img {
+.center-cropped img,
+.center-cropped-wsrc img {
   width: 100%;
   height: auto;
   margin: auto;
@@ -177,4 +197,30 @@ mat-card .formOprtionsEditor{
 .formSelection{
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.formSelectionThree{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gridSelecao{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.gridSelecao img{
+  width: auto;
+  height: 50px;
+  padding: 5px;
+  transition: transform, 0.2s;
+}
+
+.gridSelecao img:hover{
+  transform: scale(1.03);
 }

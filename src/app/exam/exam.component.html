@@ -26,7 +26,7 @@
       <div class="formSelectionThree">
           <h3>Seleção das séries</h3>
           <div class="gridSelecao">
-            
+              <img (click)="selectSelectionImage($event.target);" *ngFor="let number of [0,1,2,3,4,4,4,4,4,4,4,4,4,4,4,4,4]" src="assets\img\corpo.png" >
           </div>
       </div>
     </div>
@@ -49,14 +49,14 @@
   </mat-card>
 
   <mat-card class="card card-images">
-    <div class="div-grid">
+    <div class="div-grid"> 
       <mat-grid-list [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
         <mat-grid-tile
           *ngFor="let tile of tiles"
           [colspan]="tile.cols"
           [rowspan]="tile.rows">
-          <div class="center-cropped" style="background-image: url('http://placehold.it/200x200');">
-            <img src="assets/img/corpo.png">
+          <div class="center-cropped" (click)="selectGridImage($event.target)">
+            <img src="">
           </div>
         </mat-grid-tile>
       </mat-grid-list> 
