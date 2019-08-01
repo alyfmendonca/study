@@ -9,7 +9,7 @@ import {ExamComponent} from "./exam/exam.component";
 import {PopupEditComponent} from "./popup-edit/popup-edit.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/exam/1', pathMatch:'full'},
+  {path: '', redirectTo: 'login', pathMatch:'full'},
   {path: 'login', component: LoginComponent},
   {
     path: 'home',
@@ -19,11 +19,11 @@ const routes: Routes = [
       { path: 'formatted', component: ExamListScreenComponent },
       { path: 'nonformatted', component: ExamListScreenComponent },
       { path: 'print', component: ExamListScreenComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'exam/:id', component: ExamComponent }
     ]
   },
-  {path: 'forgotpassword', component: ForgotPasswordComponent},
-  {path: 'exam/:id', component: ExamComponent}
+  {path: 'forgotpassword', component: ForgotPasswordComponent}
 ];
 
 @NgModule({

@@ -53,6 +53,18 @@ export class ExamComponent implements OnInit {
     {text: 'Overlay', value: 5}
   ]
 
+  midiaOptionList: any[] = [
+    {text: 'Lorem Ipsum', value: 1},
+    {text: 'Lorem Ipsum Lorem', value: 2},
+    {text: 'Lorem Lorem', value: 3},
+  ]
+
+  layoutOptionList: any[] = [
+    {text: 'Lorem Ipsum', value: 1},
+    {text: 'Lorem Ipsum Lorem', value: 2},
+    {text: 'Lorem Lorem', value: 3},
+  ]
+
   color = "primary";
 
   checked = false;

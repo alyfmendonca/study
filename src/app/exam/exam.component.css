@@ -89,7 +89,8 @@
 }
 
 .formToolsGrid h3,
-.formToolsEscopo h3{
+.formToolsEscopo h3,
+.formSelection h3{
   font-family: Roboto;
   font-style: normal;
   font-weight: bold; 
@@ -99,7 +100,8 @@
 }
 
 .formToolsEscopo input,
-.formToolsGrid input{
+.formToolsGrid input,
+.formSelection mat-select{
   font-weight: 300;
   font-size: 12px;  
   line-height: 14px;
@@ -125,12 +127,14 @@
   justify-content: space-around;
 }
 
-.formToolsIcons img{
+.formToolsIcons img,
+.card-options img{
   width: 25px;
   height: 30px;
 }
 
-.formToolsIcons img:hover{
+.formToolsIcons img:hover,
+.card-options img:hover{
   cursor: pointer;
 }
 
@@ -152,6 +156,25 @@
 }
 
 .underRadios{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-options{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+}
+
+mat-card .formOprtionsEditor{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+}
+
+.formSelection{
   display: flex;
   flex-direction: column;
 }

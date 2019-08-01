@@ -30,4 +30,8 @@ export class ExamListScreenComponent implements OnInit {
       })
   }
 
+  redirPrint(elemento){
+    this.router.navigateByUrl("home/exam/1");
+  }
+
 }

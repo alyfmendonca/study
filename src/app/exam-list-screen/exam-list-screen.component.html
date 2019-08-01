@@ -9,51 +9,51 @@
 
   <ng-container matColumnDef="acessionNumber">
     <th mat-header-cell *matHeaderCellDef> ACESSION_NUMBER </th>
-    <td mat-cell *matCellDef="let element" class="line"> {{element.accession_number}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element" class="line"> {{element.accession_number}} </td>
   </ng-container>
 
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
-    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.description}} </td>
   </ng-container>
 
   <ng-container matColumnDef="formatted">
     <th mat-header-cell *matHeaderCellDef> FORMATADO </th>
-    <td mat-cell *matCellDef="let element"> {{element.formatted}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.formatted}} </td>
   </ng-container>
 
   <ng-container matColumnDef="printed">
     <th mat-header-cell *matHeaderCellDef> IMPRESSO </th>
-    <td mat-cell *matCellDef="let element"> {{element.printed}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.printed}} </td>
   </ng-container>
 
   <ng-container matColumnDef="saved">
     <th mat-header-cell *matHeaderCellDef> SALVO </th>
-    <td mat-cell *matCellDef="let element"> {{element.saved}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.saved}} </td>
   </ng-container>
 
   <ng-container matColumnDef="modality">
     <th mat-header-cell *matHeaderCellDef> MODALIDADE </th>
-    <td mat-cell *matCellDef="let element"> {{element.mod_full_name}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.mod_full_name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="createdAt">
     <th mat-header-cell *matHeaderCellDef> DATA DE CRIAÇÃO </th>
-    <td mat-cell *matCellDef="let element"> {{element.study_date | date: 'dd/MM/yyyy'}} </td>
+    <td (click)="redirPrint();" mat-cell *matCellDef="let element"> {{element.study_date | date: 'dd/MM/yyyy'}} </td>
   </ng-container>
  
   <ng-container matColumnDef="attendance">
     <th mat-header-cell *matHeaderCellDef> ATENDIMENTO </th>
-    <td mat-cell  *matCellDef="let element">
+    <td (click)="redirPrint();" mat-cell  *matCellDef="let element">
       {{element.accession_number}} - {{element.institution_site_id}}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="print" *ngIf="url=='/home/print'">
     <th mat-header-cell [ngClass]="'customWidthClass'" *matHeaderCellDef></th>
-    <td mat-cell [ngClass]="'customWidthClass'" *matCellDef="let element">
+    <td (click)="redirPrint();" mat-cell [ngClass]="'customWidthClass'" *matCellDef="let element">
       <button mat-icon-button aria-label="Imprimir">
-        <mat-icon>print</mat-icon>
+        <mat-icon>print</mat-icon> 
       </button>
     </td>
   </ng-container>

@@ -21,6 +21,7 @@ import {StudyService} from "./service/study.service";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {PopupEditComponent} from "./popup-edit/popup-edit.component";
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatGridListModule,
     FlexLayoutModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   entryComponents: [
     PopupEditComponent,

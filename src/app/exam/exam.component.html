@@ -1,10 +1,51 @@
 <div class="exam-div">
   <mat-card class="card card-midia">
-
+    <div class="formSelection">
+      <div class="formSelectionOne">
+        <h3>Seleção de Mídia</h3>
+        <mat-form-field>
+            <mat-label>Seleção</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let midiaOption of midiaOptionList" [value]="midiaOption.value">
+                {{midiaOption.text}}
+              </mat-option> 
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="formSelectionTwo">
+        <h3>Seleção do Layout</h3>
+        <mat-form-field>
+            <mat-label>Layout</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let layoutOption of layoutOptionList" [value]="layoutOption.value">
+                {{layoutOption.text}}
+              </mat-option> 
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div class="formSelectionThree">
+          <h3>Seleção das séries</h3>
+          <div class="gridSelecao">
+            
+          </div>
+      </div>
+    </div>
   </mat-card>
 
   <mat-card class="card card-options">
-
+    <div class="formOprtionsEditor">
+        <img src="assets\icons\Ativo 39.png" >
+        <img src="assets\icons\Ativo 31.png" >
+        <img src="assets\icons\Ativo 29.png" > 
+        <img src="assets\icons\Ativo 30.png" >
+        <img src="assets\icons\Ativo 38.png" >
+        <img src="assets\icons\Ativo 34.png" style="transform: rotate(-90deg);">
+        <img src="assets\icons\Ativo 32.png" >
+        <img src="assets\icons\Ativo 47.png" >
+    </div>
+    <div class="formFilter">
+        <img src="assets\icons\Ativo 49.png" >
+    </div>
   </mat-card>
 
   <mat-card class="card card-images">
@@ -87,7 +128,7 @@
                   <mat-slide-toggle
                       color="primary"
                       [checked]="checkedUnder"
-                      [disabled]="disabledUnder"> 
+                      [disabled]="disabledUnder">  
                   </mat-slide-toggle>
                 </section>
       </div>

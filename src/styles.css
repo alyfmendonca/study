@@ -13,6 +13,7 @@ body {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 999;
 }
 
 app-exam .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
