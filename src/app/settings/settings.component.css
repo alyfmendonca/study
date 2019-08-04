@@ -95,9 +95,9 @@
 }
 
 .table-aetitles{
-    padding-left: 10%;
     width: 95%;
     overflow-y: auto;
+    padding: 9px 0% 0px 10%;
 }
 
 .table-aetitles table{

@@ -62,11 +62,29 @@ export class SettingsComponent implements OnInit {
   }
 
   aetitleAdd(){
-
+    if(this.aeTitleAdd == '' || this.ipAdd == '' || this.portaAdd == ''){
+      alert('Digite as informações à esquerda da tabela.');
+      return;
+    }else{
+      var newaeTitle: any = {
+        aeTitle: this.aeTitleAdd,
+        ip: this.ipAdd,
+        porta: this.portaAdd
+      }
+      this.mockedAeTitles.push(newaeTitle);
+      this.dataSource = new MatTableDataSource<any>(this.mockedAeTitles);
+      this.aeTitleAdd = '';
+      this.ipAdd = '';
+      this.portaAdd = '';
+    }
   }
 
   aetitleEdit(){
-    
+
+  }
+
+  teste(){
+    console.log(this.selection);
   }
 
 }
