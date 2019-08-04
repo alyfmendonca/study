@@ -22,6 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {PopupEditComponent} from "./popup-edit/popup-edit.component";
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatSelectModule} from '@angular/material/select';
     FlexLayoutModule,
     MatDialogModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     PopupEditComponent,

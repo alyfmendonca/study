@@ -7,6 +7,7 @@
 
 .aetitles-card {
     width: 95%;
+    height: 280px;
     margin-top: 15px;
     left: 50%;
     transform: translate(-50%);
@@ -27,7 +28,7 @@
     margin-left:auto; 
     margin-right:0;
     background-color: #DF8D2C;
-    color: white;
+    color: white; 
     width: 170px;
     height: 30px;
     padding: 0;
@@ -44,4 +45,72 @@
     padding: 12px;
     margin-top: 8px;
     width: 100%;
+}
+
+.infos-card-up{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.inputs-up{
+    flex: 6;
+}
+
+.rds-up{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rds-up mat-radio-group{ 
+    display: flex;
+    flex-direction: column-reverse;
+    padding-right: 25%;
+    height: 70%;
+    justify-content: space-evenly;
+}
+
+.rds-up h3{
+    display: flex;
+    color: #004186;
+    font-weight: normal;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.container-aetitles{
+    display: flex;
+    flex-direction: row; 
+    height: 80%;
+}
+
+.ae-titles-inputs{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    width: 18%;
+    padding-left: 4%;
+}
+
+.table-aetitles{
+    padding-left: 10%;
+    width: 95%;
+    overflow-y: auto;
+}
+
+.table-aetitles table{
+    width: 100%;
+}
+
+.btns-aetitles{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1%;
+}
+
+.btns-aetitles button{
+    margin: 1%;
 }
