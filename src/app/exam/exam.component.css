@@ -262,9 +262,96 @@ h3.MainTitle{
   flex-direction: column;
   width: 15%;
 }
+.content3{
+  padding-left: 25px;
+}
 .content2{
   display: flex;
   flex-direction: column;
   width: 70%;
   border: 1px solid #ccc;
+}
+.iconBox{
+  width: 25px;
+  height: 25px;
+}
+.iconBox img{
+  width: 100% !important;
+  height: auto !important;
+  margin: auto;
+}
+.content2 img{
+  height: 85%;
+  width: auto;
+  margin: auto;
+}
+
+
+.card-modalidades .card-modalidade{
+  margin: 6px 0px 6px 0px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px 0 #aeaeae;
+  border-left: 5px solid #828282;
+  font-size: 13px;
+  color: #004186;
+  font-weight: 700;
+  padding-left: 30px;
+}
+.card-modalidades{
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow-x: unset;
+  overflow-y: auto;
+  margin-right: 15px;
+  margin-left: -15px;
+  overflow: hidden;
+}
+
+.card-modalidades .card-modalidade:hover {
+  transform: scale(1.02);
+}
+
+.thirdLine{
+  display: flex;
+}
+
+.greyButton{
+  width: 200px;
+  background: #ccc;
+  font-size: 12px;
+  margin: auto;
+}
+.orangeButton{
+  width: 170px;
+  background: orange;
+  font-size: 12px;
+  margin: auto;
+}
+.lineIcons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+.iconBoxBigger{
+  width: 40px;
+  height: 40px;
+}
+.iconBoxBigger img{
+  width: 100% !important;
+  height: auto !important;
+  margin: auto;
+}
+.cleanButton{
+  border: 1px solid #004186;
+  color: #004186;
+  background: transparent;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  box-shadow: none;
 }

@@ -34,14 +34,30 @@
 
   <mat-card class="card card-options">
     <div class="formOprtionsEditor">
+      <div class="iconBox">
         <img src="assets\icons\Ativo 39.png" >
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 31.png" >
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 29.png" > 
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 30.png" >
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 38.png" >
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 34.png" style="transform: rotate(-90deg);">
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 32.png" >
+      </div>
+      <div class="iconBox">
         <img src="assets\icons\Ativo 47.png" >
+      </div>
     </div>
     <div (click)="chama()" class="formFilter">
         <img src="assets\icons\Ativo 49.png" >
@@ -100,19 +116,38 @@
       </div>
       <div class="formToolsIcons">
             <div class="incosOne">
-              <img src="assets\icons\Ativo 47.png" >
-              <img src="assets\icons\Ativo 46.png" >
-              <img src="assets\icons\Ativo 50.png" style="transform: rotate(90deg);">
+              <div class="iconBox">
+                <img src="assets\icons\Ativo 47.png" >
+              </div>
+              <div class="iconBox">
+                <img src="assets\icons\Ativo 46.png" >
+              </div>
+              <div class="iconBox">
+                <img src="assets\icons\Ativo 50.png" style="transform: rotate(90deg);">
+              </div>
             </div>
             <div class="iconsTwo">
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 41.png" >
+              </div>
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 28.png" >
+              </div>
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 48.png" >
+              </div>
+    
             </div>
             <div class="iconsThree">
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 40.png" >
+              </div>
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 29.png" >
+              </div>
+              <div class="iconBox">
                 <img src="assets\icons\Ativo 30.png" >
+              </div>
             </div>
       </div>
       <div class="formUnderIcons">
@@ -153,15 +188,97 @@
           <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
         </mat-form-field>
         <mat-form-field> 
-            <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
-          </mat-form-field>
+          <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+        </mat-form-field>
+        <div class="card-modalidades firstContent">
+        <mat-card class="card-modalidade" (click)="mudaClasse($event);" *ngFor="let modalidade of mockedModalidades">
+            {{modalidade.MODALITY}}
+        </mat-card>
+        <button mat-raised-button [color]="color" class="orangeButton">Adicionar</button>
+      </div>
       </div>
     </div>
     <div class="content2">
-      
+      <img src="assets\img\corpo.png" alt="">
+      <button mat-raised-button [color]="color" class="greyButton">DELETAR</button>
     </div>
     <div class="content3">
-    
+      <div class="formToolsGrid">
+        <h3>Ferramentas</h3>
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 47.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 46.png" >
+          </div>
+      
+        </div>
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 41.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 28.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 48.png" >
+          </div>
+
+        </div>
+
+        <h3>Ferramentas</h3>
+        
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 41.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 28.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 48.png" >
+          </div>
+
+        </div>
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 47.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 46.png" >
+          </div>
+      
+        </div>
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 47.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 46.png" >
+          </div>
+      
+        </div>
+        <div class="lineIcons">
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 41.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 28.png" >
+          </div>
+          <div class="iconBoxBigger">
+            <img src="assets\icons\Ativo 48.png" >
+          </div>
+
+        </div>
+
+        <button mat-raised-button [color]="color" class="cleanButton">INVERTER SELEÇÃO</button>
+        <br>
+        <button mat-raised-button [color]="color" class="cleanButton">APAGAR SELEÇÃO</button>
+        <br><br><br>
+        <button mat-raised-button [color]="color" style=" width: 90%; margin: auto;">DELETAR</button>
+       
+      </div>
     </div>
   </div>
   

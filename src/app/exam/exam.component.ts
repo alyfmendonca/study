@@ -78,6 +78,16 @@ export class ExamComponent implements OnInit {
 
   selectedScope:number = 1;
   selectedEditor:number = 1;
+  
+  mockedModalidades: any[] = 
+  [
+    { MODALITY: 'RAIO X'},
+    { MODALITY: 'TOMOGRAFIA'},
+    { MODALITY: 'RESSONANCIA'},
+    { MODALITY: 'ULTRASONOGRAFIA'},
+    { MODALITY: 'PET / CT'},
+    { MODALITY: 'MEDICINA NUCLEAR'}
+  ];
 
   selectedSource:string = "";
 
