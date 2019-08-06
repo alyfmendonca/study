@@ -129,7 +129,16 @@
 
 .card-modalidades .card-modalidade{
     margin: 6px 0px 6px 0px;
+    -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 0 #aeaeae;
+    border-left: 6px solid #828282;
+    font-size: 13px;
+    color: #004186;
+    font-weight: 700;
+    padding-left: 30px;
 }
 
 .card-modalidades .card-modalidade:hover {
