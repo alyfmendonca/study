@@ -114,3 +114,25 @@
 .btns-aetitles button{
     margin: 1%;
 }
+
+.card-modalidades{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    width: 25%;
+    max-height: 600px;
+    overflow-x: unset;
+    overflow-y: auto;
+    transform: translate(-50%);
+    left: 15%;
+}
+
+.card-modalidades .card-modalidade{
+    margin: 6px 0px 6px 0px;
+    transition: all 0.3s;
+}
+
+.card-modalidades .card-modalidade:hover {
+    transform: scale(1.02);
+}
+
