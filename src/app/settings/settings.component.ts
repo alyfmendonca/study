@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-settings',
@@ -18,6 +19,8 @@ export class SettingsComponent implements OnInit {
   ipAdd:string = "";
   portaAdd:string = "";
 
+  listDicomDropped: any[] = [];
+
   mockedAeTitles: any[] = [
     {aeTitle: 'trest', ip: '125.190.165.255', porta: 8088},
     {aeTitle: 'yuoiyt', ip: '39.123.123.123', porta: 5000},
@@ -25,13 +28,52 @@ export class SettingsComponent implements OnInit {
     {aeTitle: 'suiton', ip: '167.234.65.23', porta: 8019}
   ];
 
-  mockedDicomTags: any = 
-      {  
-       PATIENTSNAME: 'PATIENTSNAME', PATIENTID: 'PATIENTID', PATIENTSBIRTHDATE: 'PATIENTSBIRTHDATE', PATIENTSSEX: 'PATIENTSSEX', OTHERPATIENTIDS: 'OTHERPATIENTIDS',
-       PATIENTAGE: 'PATIENTAGE', PATIENTSSIZE: 'PATIENTSSIZE', PATIENTSWEIGHT: 'PATIENTSWEIGHT', ACESSIONUMBER: 'ACESSIONUMBER', MODALITY: 'MODALITY',
-       MANUFACTURER: 'MANUFACTURER', INSTITUTIONNAME: 'INSTITUTIONNAME', STATIONNAME: 'STATIONNAME'  
-      };
-      
+  mockedDicomTags: any[] = 
+  [
+    {
+      TAG: 'PATIENTSNAME'
+    },
+    {
+      TAG: 'PATIENTID',
+    },
+    {
+      TAG: 'PATIENTSBIRTHDATE', 
+    },
+    {
+      TAG: 'PATIENTSSEX', 
+    },
+    {
+      TAG: 'OTHERPATIENTIDS',
+    },
+    {
+      TAG: 'PATIENTAGE', 
+    },
+    {
+      TAG: 'PATIENTSSIZE', 
+    },
+    {
+      TAG: 'PATIENTSWEIGHT', 
+    },
+    {
+      TAG: 'ACESSIONUMBER',  
+    },
+    {
+      TAG: 'MODALITY',  
+    },
+    {
+      TAG: 'MANUFACTURER',  
+    },
+    {
+      TAG: 'INSTITUTIONNAME',   
+    },
+    {
+      TAG: 'STATIONNAME' 
+    }
+  ]
+       
+       
+      ;
+
   mockedModalidades: any[] = 
   [
     { MODALITY: 'RAIO X'},
@@ -67,6 +109,10 @@ export class SettingsComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 
+  mudaClasse(elem){
+    console.log(elem);
+  }
+
   ngOnInit() {
   }
 
@@ -76,6 +122,17 @@ export class SettingsComponent implements OnInit {
 
   aetitleApagar(){
 
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
   aetitleAdd(){

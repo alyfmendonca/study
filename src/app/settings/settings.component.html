@@ -79,18 +79,27 @@
 </div>
 <div class="thirdLine">
     <mat-card class="card-modalidades firstContent">
-        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
+        <h3>Modalidades</h3>
+        <mat-card class="card-modalidade" (click)="mudaClasse($event);" *ngFor="let modalidade of mockedModalidades">
             {{modalidade.MODALITY}}
         </mat-card>
     </mat-card>
-    <mat-card class="card-modalidades secondContent">
-        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
-            {{modalidade.MODALITY}}
+    <mat-card cdkDropList #todoList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="mockedDicomTags" [cdkDropListConnectedTo]="[doneList]" class="card-modalidades secondContent">
+        <h3>DicomTAG</h3>
+        <mat-card class="card-dicomtag" cdkDrag *ngFor="let dicomtag of mockedDicomTags">
+            {{dicomtag.TAG}} 
         </mat-card>
     </mat-card>
     <mat-card class="card-modalidades thirdContent">
-        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
-            {{modalidade.MODALITY}}
-        </mat-card>
+        <div class="label-blocos">
+            <h3>Imagem</h3>
+        </div>
+        <div class="div-imagem-blocos">
+            <div cdkDropList #doneList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped" [cdkDropListConnectedTo]="[todoList]" *ngFor="let number of [1,2,3,4]" class="bloco">
+                    <mat-card class="card-dicomtag" cdkDrag *ngFor="let dicomtag of listDicomDropped">
+                            {{dicomtag.TAG}} 
+                    </mat-card>
+            </div>
+        </div>
     </mat-card>
 </div>
