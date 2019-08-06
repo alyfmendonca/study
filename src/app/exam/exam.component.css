@@ -224,3 +224,47 @@ mat-card .formOprtionsEditor{
 .gridSelecao img:hover{
   transform: scale(1.03);
 }
+
+.modalAjuste {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.69);
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  display: none;
+}
+.modalConteudo {
+  background: #fff;
+  border-radius: 5px;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  padding: 30px 50px;
+}
+
+h3.MainTitle{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold; 
+  font-size: 25px;
+  color: #004186;
+}
+
+.content1,
+.content3{
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+.content2{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  border: 1px solid #ccc;
+}

@@ -43,7 +43,7 @@
         <img src="assets\icons\Ativo 32.png" >
         <img src="assets\icons\Ativo 47.png" >
     </div>
-    <div class="formFilter">
+    <div (click)="chama()" class="formFilter">
         <img src="assets\icons\Ativo 49.png" >
     </div>
   </mat-card>
@@ -133,5 +133,36 @@
                 </section>
       </div>
     </div>
+
+
+    
+
+    
   </mat-card>
+  
+</div>
+<!-- DIV MODAL AJUSTE FINO -->
+<div class="modalAjuste">
+  <div class="modalConteudo">
+    <i (click)="fecha()" class="fas fa-times"></i>
+    <div class="content1">
+      <h3 class="MainTitle">Ajuste fino</h3>
+      <div class="formToolsGrid">
+        <h3>Ferramentas</h3>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
+        </mat-form-field>
+        <mat-form-field> 
+            <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="content2">
+      
+    </div>
+    <div class="content3">
+    
+    </div>
+  </div>
+  
 </div>

@@ -86,6 +86,12 @@ export class ExamComponent implements OnInit {
   ngOnInit() {
   }
 
+  chama(){
+    document.getElementsByClassName('modalAjuste')[0].setAttribute("style", "display:flex;");
+  }
+  fecha(){
+    document.getElementsByClassName('modalAjuste')[0].setAttribute("style", "display:none;");
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupEditComponent, {
       width: '90%',
