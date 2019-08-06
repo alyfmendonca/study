@@ -77,8 +77,20 @@
     </div>
 </mat-card>
 </div>
-<mat-card class="card-modalidades">
-    <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
-        {{modalidade.MODALITY}}
+<div class="thirdLine">
+    <mat-card class="card-modalidades firstContent">
+        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
+            {{modalidade.MODALITY}}
+        </mat-card>
     </mat-card>
-</mat-card>
+    <mat-card class="card-modalidades secondContent">
+        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
+            {{modalidade.MODALITY}}
+        </mat-card>
+    </mat-card>
+    <mat-card class="card-modalidades thirdContent">
+        <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
+            {{modalidade.MODALITY}}
+        </mat-card>
+    </mat-card>
+</div>
