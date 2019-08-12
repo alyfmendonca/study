@@ -33,3 +33,53 @@ app-exam .formToolsEscopo .mat-radio-label{
   line-height: 14px;
   color: #4F4F4F;
 }
+
+app-settings .mat-checkbox-frame{
+  border-width: 1px !important;
+}
+
+.greyButton{
+  width: 200px;
+  background: #ccc;
+  font-size: 12px;
+  margin: auto;
+  cursor: pointer;
+}
+.orangeButton{
+  width: 170px;
+  background: orange;
+  font-size: 12px;
+  margin: auto;
+  cursor: pointer;
+}
+button.cleanGreyButton {
+  border: 1.5px solid #bdbdbd;
+  background: transparent;
+  color: #bdbdbd;
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.ligthBlueButton {
+  background: #91d8f6;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 2px;
+  border: 1.5px solid #91d8f6;
+  cursor: pointer;
+}
+
+.tradicionalButton {
+  background: #004186;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 2px;
+  border: 1.5px solid #004186;
+  cursor: pointer;
+}
+
+.mat-radio-outer-circle{
+  border-width: 1px !important;
+}

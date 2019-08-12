@@ -98,9 +98,12 @@ export class ExamComponent implements OnInit {
 
   chama(){
     document.getElementsByClassName('modalAjuste')[0].setAttribute("style", "display:flex;");
+    document.getElementsByClassName('modalConteudo')[0].setAttribute("style", "display:flex;");
   }
   fecha(){
     document.getElementsByClassName('modalAjuste')[0].setAttribute("style", "display:none;");
+    document.getElementsByClassName('modalConteudo')[0].setAttribute("style", "display:none;");
+
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupEditComponent, {

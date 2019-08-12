@@ -90,14 +90,14 @@
     display: flex;
     flex-direction: column; 
     justify-content: space-evenly;
-    width: 18%;
+    width: 35%;
     padding-left: 4%;
 }
 
 .table-aetitles{
     width: 95%;
     overflow-y: auto;
-    padding: 9px 0% 0px 10%;
+    padding: 9px 2% 0px 8%;
 }
 
 .table-aetitles table{
@@ -158,7 +158,7 @@
     margin-right: 20px;
 }
 
-.secondContent .card-dicomtag{
+.card-dicomtag{
     margin: 0px 0px 10px 0px;
     box-shadow: unset;
     border: 1px solid #004186;
@@ -179,7 +179,7 @@
 .div-imagem-blocos .bloco{
     width: 35%;
     height: 35%;
-    border: 1px solid #828282;
+    border: 1px solid #bdbdbd;
     border-radius: 3px;
 }
 
@@ -190,4 +190,41 @@
     font-weight: 700;
     display: flex;
     justify-content: center;
+}
+.aetitleTable{
+    box-shadow: none;
+    text-align: center;
+}
+th.mat-header-cell{
+    text-align: center;
+}
+table.mat-elevation-z8.aetitleTable.mat-table th, table.mat-elevation-z8.aetitleTable.mat-table td {
+    border: 1px solid #ccc;
+    margin: auto;
+    padding: initial;
+}
+
+table.mat-elevation-z8.aetitleTable.mat-table td {
+    color: #918d8d;
+}
+table.mat-elevation-z8.aetitleTable.mat-table th{
+    color: #004186;
+    font-weight: 700;
+    font-size: 14px;
+}
+.btns-aetitles{
+    margin-bottom: 30px !important; 
+}
+.card-dicomtagAdd{
+    margin: 0px 0px 10px 0px;
+    box-shadow: unset;
+    border: 1px solid #004186;
+    border-radius: 2px;
+    color: #004186;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+}
+.card-dicomtagAdd i {
+    float: right;
 }

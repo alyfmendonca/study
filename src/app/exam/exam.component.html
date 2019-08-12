@@ -34,28 +34,28 @@
 
   <mat-card class="card card-options">
     <div class="formOprtionsEditor">
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 39.png" >
       </div>
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 31.png" >
       </div>
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 29.png" > 
       </div>
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 30.png" >
       </div>
-      <div class="iconBox">
-        <img src="assets\icons\Ativo 38.png" >
+      <div class="iconBoxEditor">
+        <img src="assets\icons\Ativo 38.png" style="width: 50% !important">
       </div>
-      <div class="iconBox">
-        <img src="assets\icons\Ativo 34.png" style="transform: rotate(-90deg);">
+      <div class="iconBoxEditor">
+        <img src="assets\icons\seta-lado.png" >
       </div>
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 32.png" >
       </div>
-      <div class="iconBox">
+      <div class="iconBoxEditor">
         <img src="assets\icons\Ativo 47.png" >
       </div>
     </div>
@@ -79,8 +79,8 @@
     </div>
     <div class="div-buttons">
       <div class="div-right">
-        <button mat-raised-button [color]="color">PREVIEW</button>
-        <button mat-raised-button [color]="color">SALVAR</button>
+        <button mat-raised-button [color]="color" class="greyButton" (click)="openDialog()" >PREVIEW</button>
+        <button mat-raised-button [color]="color" class="orangeButton">SALVAR</button>
         <button mat-raised-button [color]="color" (click)="openDialog()">IMPRIMIR</button>
       </div>
     </div>
@@ -91,12 +91,16 @@
     <div class="containerPaiTools">
       <div class="formToolsGrid">
         <h3>Ferramentas</h3>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
-        </mat-form-field>
-        <mat-form-field> 
-            <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
-          </mat-form-field>
+        <div class="inputNumber">
+          <label>Colunas</label>
+          <input type="number" placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();">
+        </div>
+        <br>
+        <div class="inputNumber">
+            <label>Linhas</label>
+            <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+          </div>
+        
       </div>
       <div class="formToolsEscopo">
         <h3>Escopo por Frame</h3>
@@ -176,110 +180,131 @@
   </mat-card>
   
 </div>
+
+
 <!-- DIV MODAL AJUSTE FINO -->
-<div class="modalAjuste">
-  <div class="modalConteudo">
-    <i (click)="fecha()" class="fas fa-times"></i>
-    <div class="content1">
-      <h3 class="MainTitle">Ajuste fino</h3>
-      <div class="formToolsGrid">
-        <h3>Ferramentas</h3>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
-        </mat-form-field>
-        <mat-form-field> 
-          <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
-        </mat-form-field>
-        <div class="card-modalidades firstContent">
-        <mat-card class="card-modalidade" (click)="mudaClasse($event);" *ngFor="let modalidade of mockedModalidades">
-            {{modalidade.MODALITY}}
-        </mat-card>
-        <button mat-raised-button [color]="color" class="orangeButton">Adicionar</button>
-      </div>
-      </div>
-    </div>
-    <div class="content2">
-      <img src="assets\img\corpo.png" alt="">
-      <button mat-raised-button [color]="color" class="greyButton">DELETAR</button>
-    </div>
-    <div class="content3">
-      <div class="formToolsGrid">
-        <h3>Ferramentas</h3>
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 47.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 46.png" >
-          </div>
-      
-        </div>
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 41.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 28.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 48.png" >
-          </div>
-
-        </div>
-
-        <h3>Ferramentas</h3>
-        
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 41.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 28.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 48.png" >
-          </div>
-
-        </div>
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 47.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 46.png" >
-          </div>
-      
-        </div>
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 47.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 46.png" >
-          </div>
-      
-        </div>
-        <div class="lineIcons">
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 41.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 28.png" >
-          </div>
-          <div class="iconBoxBigger">
-            <img src="assets\icons\Ativo 48.png" >
-          </div>
-
-        </div>
-
-        <button mat-raised-button [color]="color" class="cleanButton">INVERTER SELEÇÃO</button>
-        <br>
-        <button mat-raised-button [color]="color" class="cleanButton">APAGAR SELEÇÃO</button>
-        <br><br><br>
-        <button mat-raised-button [color]="color" style=" width: 90%; margin: auto;">DELETAR</button>
-       
-      </div>
-    </div>
-  </div>
+<div (click)="fecha()" class="modalAjuste">
+  
   
 </div>
+
+<div class="modalConteudo">
+  <i (click)="fecha()" class="fas fa-times"></i>
+  <div class="content1">
+    <h3 class="MainTitle">Ajuste fino</h3>
+    <div class="formToolsGrid">
+      <h3>Ferramentas</h3>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Colunas" [(ngModel)]="colsGrid" (change)="changeColunas();">
+      </mat-form-field>
+      <mat-form-field> 
+        <input matInput type="number" placeholder="Linhas" [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+      </mat-form-field>
+      <div class="card-modalidades firstContent">
+      <mat-card class="card-modalidade" (click)="mudaClasse($event);" *ngFor="let modalidade of mockedModalidades">
+          {{modalidade.MODALITY}}
+      </mat-card>
+      <button mat-raised-button [color]="color" class="orangeButton">Adicionar</button>
+    </div>
+    </div>
+  </div>
+  <div class="content2">
+    <img src="assets\img\corpo.png" alt="">
+    <button mat-raised-button [color]="color" class="greyButton">DELETAR</button>
+  </div>
+  <div class="content3">
+    <div class="formToolsGrid">
+      <h3>Ferramentas</h3>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 47.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 46.png" >
+        </div>
+    
+      </div>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 41.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 28.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 48.png" >
+        </div>
+
+      </div>
+
+      <h3>Ferramentas</h3>
+      
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 41.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 28.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 48.png" >
+        </div>
+
+      </div>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 47.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 46.png" >
+        </div>
+    
+      </div>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 47.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 46.png" >
+        </div>
+    
+      </div>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 41.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 28.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\Ativo 48.png" >
+        </div>
+
+      </div>
+
+      <button mat-raised-button [color]="color" class="cleanButton">INVERTER SELEÇÃO</button>
+      <br>
+      <button mat-raised-button [color]="color" class="cleanButton">APAGAR SELEÇÃO</button>
+      <br><br><br>
+      <button mat-raised-button [color]="color" style=" width: 90%; margin: auto;">DELETAR</button>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MODAL PREVIEW -->
+<!-- <div (click)="fechaPreview()" class="modalAjuste">
+  
+  
+</div>
+
+<div class="modalConteudoPreview">
+  <i (click)="fecha()" class="fas fa-times"></i>
+  <div class="content1">
+    <h3 class="MainTitle">Preview</h3>
+    
+     
+  </div>
+</div> -->

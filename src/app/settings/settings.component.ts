@@ -19,8 +19,6 @@ export class SettingsComponent implements OnInit {
   ipAdd:string = "";
   portaAdd:string = "";
 
-  listDicomDropped: any[] = [];
-
   mockedAeTitles: any[] = [
     {aeTitle: 'trest', ip: '125.190.165.255', porta: 8088},
     {aeTitle: 'yuoiyt', ip: '39.123.123.123', porta: 5000},
@@ -28,51 +26,48 @@ export class SettingsComponent implements OnInit {
     {aeTitle: 'suiton', ip: '167.234.65.23', porta: 8019}
   ];
 
-  mockedDicomTags: any[] = 
-  [
-    {
-      TAG: 'PATIENTSNAME'
-    },
-    {
-      TAG: 'PATIENTID',
-    },
-    {
-      TAG: 'PATIENTSBIRTHDATE', 
-    },
-    {
-      TAG: 'PATIENTSSEX', 
-    },
-    {
-      TAG: 'OTHERPATIENTIDS',
-    },
-    {
-      TAG: 'PATIENTAGE', 
-    },
-    {
-      TAG: 'PATIENTSSIZE', 
-    },
-    {
-      TAG: 'PATIENTSWEIGHT', 
-    },
-    {
-      TAG: 'ACESSIONUMBER',  
-    },
-    {
-      TAG: 'MODALITY',  
-    },
-    {
-      TAG: 'MANUFACTURER',  
-    },
-    {
-      TAG: 'INSTITUTIONNAME',   
-    },
-    {
-      TAG: 'STATIONNAME' 
-    }
-  ]
-       
-       
-      ;
+  // mockedDicomTags: any[] = 
+  // [
+  //   {
+  //     TAG: 'PATIENTSNAME'
+  //   },
+  //   {
+  //     TAG: 'PATIENTID',
+  //   },
+  //   {
+  //     TAG: 'PATIENTSBIRTHDATE', 
+  //   },
+  //   {
+  //     TAG: 'PATIENTSSEX', 
+  //   },
+  //   {
+  //     TAG: 'OTHERPATIENTIDS',
+  //   },
+  //   {
+  //     TAG: 'PATIENTAGE', 
+  //   },
+  //   {
+  //     TAG: 'PATIENTSSIZE', 
+  //   },
+  //   {
+  //     TAG: 'PATIENTSWEIGHT', 
+  //   },
+  //   {
+  //     TAG: 'ACESSIONUMBER',  
+  //   },
+  //   {
+  //     TAG: 'MODALITY',  
+  //   },
+  //   {
+  //     TAG: 'MANUFACTURER',  
+  //   },
+  //   {
+  //     TAG: 'INSTITUTIONNAME',   
+  //   },
+  //   {
+  //     TAG: 'STATIONNAME' 
+  //   }
+  // ];
 
   mockedModalidades: any[] = 
   [
@@ -82,6 +77,23 @@ export class SettingsComponent implements OnInit {
     { MODALITY: 'ULTRASONOGRAFIA'},
     { MODALITY: 'PET / CT'},
     { MODALITY: 'MEDICINA NUCLEAR'}
+  ];
+  listDicomDropped2 = [];
+  listDicomDropped3 = [];
+  listDicomDropped4 = [];
+  mockedDicomTags = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+
+  listDicomDropped = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
   ];
 
   constructor() { }

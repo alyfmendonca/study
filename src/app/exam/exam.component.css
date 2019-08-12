@@ -8,8 +8,9 @@
 }
 
 .card-options{
-  flex: 1;
+  flex: 0.5;
   margin-left: 10px;
+  padding: 10px;
 }
 
 .card-images{
@@ -192,6 +193,8 @@ mat-card .formOprtionsEditor{
   flex-direction: column;
   justify-content: space-around;
   height: 60%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .formSelection{
@@ -246,6 +249,10 @@ mat-card .formOprtionsEditor{
   margin: auto;
   display: flex;
   padding: 30px 50px;
+  display: none;
+  position: absolute;
+  z-index: 999999;
+  margin-left: 1%;
 }
 
 h3.MainTitle{
@@ -274,6 +281,17 @@ h3.MainTitle{
 .iconBox{
   width: 25px;
   height: 25px;
+}
+.iconBoxEditor{
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.iconBoxEditor img{
+  width: 100% !important;
+  height: auto !important;
+  margin: auto;
+  
 }
 .iconBox img{
   width: 100% !important;
@@ -354,4 +372,23 @@ h3.MainTitle{
   margin: auto;
   margin-bottom: 10px;
   box-shadow: none;
+}
+.card-tools .containerPaiTools{
+  justify-content: flex-start;
+}
+.inputNumber label{
+  font-size: 12px;
+  color: #999;
+}
+.inputNumber{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.inputNumber input{ 
+  width: 30px;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #999;
 }
