@@ -374,7 +374,7 @@ h3.MainTitle{
   box-shadow: none;
 }
 .card-tools .containerPaiTools{
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 .inputNumber label{
   font-size: 12px;
@@ -391,4 +391,8 @@ h3.MainTitle{
   text-align: center;
   border: none;
   border-bottom: 1px solid #999;
+}
+.scopeSection{
+  font-size: 13px;
+  color: #999;
 }

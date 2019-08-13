@@ -97,10 +97,10 @@
         </div>
         <br>
         <div class="inputNumber">
-            <label>Linhas</label>
-            <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
-          </div>
-        
+          <label>Linhas</label>
+          <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+        </div>
+        <br>
       </div>
       <div class="formToolsEscopo">
         <h3>Escopo por Frame</h3>
@@ -109,6 +109,7 @@
           {{scope.text}}
         </mat-radio-button> 
       </mat-radio-group>
+      <br>
       <section class="scopeSection">
         Sincronizar entre séries 
           <mat-slide-toggle
@@ -117,6 +118,7 @@
               [disabled]="disabled">
           </mat-slide-toggle>
         </section>
+        <br>
       </div>
       <div class="formToolsIcons">
             <div class="incosOne">
@@ -144,7 +146,7 @@
             </div>
             <div class="iconsThree">
               <div class="iconBox">
-                <img src="assets\icons\Ativo 40.png" >
+                <img style="width: 70% !important;" src="assets\icons\Ativo 40.png" >
               </div>
               <div class="iconBox">
                 <img src="assets\icons\Ativo 29.png" >
@@ -154,6 +156,7 @@
               </div>
             </div>
       </div>
+      <br>
       <div class="formUnderIcons">
           <div class="underRadios">
             <mat-radio-group [(ngModel)]="selectedEditor"> 

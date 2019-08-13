@@ -83,3 +83,10 @@ button.cleanGreyButton {
 .mat-radio-outer-circle{
   border-width: 1px !important;
 }
+app-exam .mat-radio-label-content{
+  font-size: 13px;
+  color: #999;
+}
+app-exam mat-radio-button{
+  padding: 5px 0;
+}
