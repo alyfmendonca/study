@@ -29,8 +29,8 @@
 .exam-div {
   position: absolute;
   display: flex;
-  padding: 1% 2% 1% 2%;
-  height: 95%;
+  padding: 0 2% 1% 2%;
+  height: 85%;
   width: 95%;
 }
 
@@ -395,4 +395,11 @@ h3.MainTitle{
 .scopeSection{
   font-size: 13px;
   color: #999;
+}
+.selectRight{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px;
+  width: 90%;
+  margin-left: -3px;
 }

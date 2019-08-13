@@ -3,25 +3,23 @@
     <div class="formSelection">
       <div class="formSelectionOne">
         <h3>Seleção de Mídia</h3>
-        <mat-form-field>
-            <mat-label>Seleção</mat-label>
-            <mat-select>
+        <div> 
+            <mat-select class="selectRight">
               <mat-option *ngFor="let midiaOption of midiaOptionList" [value]="midiaOption.value">
                 {{midiaOption.text}}
               </mat-option> 
             </mat-select>
-          </mat-form-field>
+          </div>
       </div>
       <div class="formSelectionTwo">
         <h3>Seleção do Layout</h3>
-        <mat-form-field>
-            <mat-label>Layout</mat-label>
-            <mat-select>
+        <div>
+            <mat-select class="selectRight">
               <mat-option *ngFor="let layoutOption of layoutOptionList" [value]="layoutOption.value">
                 {{layoutOption.text}}
               </mat-option> 
             </mat-select>
-          </mat-form-field>
+          </div>
       </div>
       <div class="formSelectionThree">
           <h3>Seleção das séries</h3>

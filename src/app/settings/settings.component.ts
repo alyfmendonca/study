@@ -85,15 +85,16 @@ export class SettingsComponent implements OnInit {
     'Get to work',
     'Pick up groceries',
     'Go home',
-    'Fall asleep'
+    'Fall asleep',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
   ];
 
   listDicomDropped = [
     'Get up',
     'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    
   ];
 
   constructor() { }
