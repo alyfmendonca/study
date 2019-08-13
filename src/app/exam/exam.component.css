@@ -118,6 +118,7 @@
   font-size: 14px;
   line-height: 16px;
   color: #004186;
+  font-weight: 400;
 }
 
 .formToolsEscopo input,
@@ -245,7 +246,7 @@ mat-card .formOprtionsEditor{
   background: #fff;
   border-radius: 5px;
   width: 90%;
-  height: 90%;
+  height: 85%;
   margin: auto;
   display: flex;
   padding: 30px 50px;
@@ -253,6 +254,7 @@ mat-card .formOprtionsEditor{
   position: absolute;
   z-index: 999999;
   margin-left: 1%;
+  top: 10px;
 }
 
 h3.MainTitle{
@@ -299,7 +301,7 @@ h3.MainTitle{
   margin: auto;
 }
 .content2 img{
-  height: 85%;
+  height: 80%;
   width: auto;
   margin: auto;
 }

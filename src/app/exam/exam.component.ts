@@ -86,7 +86,6 @@ export class ExamComponent implements OnInit {
     { MODALITY: 'RESSONANCIA'},
     { MODALITY: 'ULTRASONOGRAFIA'},
     { MODALITY: 'PET / CT'},
-    { MODALITY: 'MEDICINA NUCLEAR'}
   ];
 
   selectedSource:string = "";
