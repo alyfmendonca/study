@@ -23,7 +23,6 @@ export class SettingsComponent implements OnInit {
     {aeTitle: 'trest', ip: '125.190.165.255', porta: 8088},
     {aeTitle: 'yuoiyt', ip: '39.123.123.123', porta: 5000},
     {aeTitle: 'quitruo', ip: '172.198.165.37', porta: 7000},
-    {aeTitle: 'suiton', ip: '167.234.65.23', porta: 8019}
   ];
 
   // mockedDicomTags: any[] = 

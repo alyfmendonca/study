@@ -24,11 +24,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MatPaginatorModule } from '@angular/material';
+
+import { MatSortModule } from '@angular/material';
+
+import { FomattedComponent } from './fomatted/fomatted.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    FomattedComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    DragDropModule
+    DragDropModule,
+    MatPaginatorModule, 
+    MatSortModule,
   ],
   entryComponents: [
     PopupEditComponent,

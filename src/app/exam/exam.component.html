@@ -204,7 +204,7 @@
         <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
       </div>
       <div class="card-modalidades firstContent">
-      <mat-card class="card-modalidade" (click)="mudaClasse($event);" *ngFor="let modalidade of mockedModalidades">
+      <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
           {{modalidade.MODALITY}}
       </mat-card>
       <button mat-raised-button [color]="color" class="orangeButton">Adicionar</button>
