@@ -90,3 +90,26 @@ app-exam .mat-radio-label-content{
 app-exam mat-radio-button{
   padding: 5px 0;
 }
+.mat-sort-header-sorted .mat-sort-header-arrow{
+  color: #fff;
+}
+.mat-sort-header-arrow{
+  color: #fff !important;
+  /* opacity: 1 !important; */
+}
+.mat-expansion-panel-body{
+  display: flex;
+  align-items: flex-start;
+}
+.mat-checkbox-frame{
+  border: 1px solid #c0c0c0 !important;
+}
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+  background: transparent !important;
+}
+.mat-checkbox-checkmark{
+  fill: #004186 !important;
+}
+.mat-checkbox-checkmark .mat-checkbox-checkmark-path{
+  stroke: #004186 !important;
+}

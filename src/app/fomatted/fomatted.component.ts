@@ -9,6 +9,42 @@ export interface UserData {
   progress: string;
   color: string;
 }
+
+export interface PeriodicElement {
+  id: number
+  acession: string;
+  paciente: string;
+  desc: string;
+  modalidade: string;
+  data: string;
+  impresso: string;
+  salvo: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {id: 1, acession: 'LA34AH_x8', paciente: "Alyf", desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 2, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 3, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 4, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 5, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 6, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 7, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 8, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 9, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 10, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 11, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 12, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 13, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 14, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 15, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+  {id: 16, acession: 'LA34AH_x8', paciente: "Lorem Ipsum",desc: "US tórax", modalidade: "US", data: "01/03/2019", impresso: "não", salvo: "sim"},
+
+
+];
+
+
+
+
 /** Constants used to fill up our data base. */
 const COLORS: string[] = [
   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
@@ -26,19 +62,33 @@ const NAMES: string[] = [
   styleUrls: ['./fomatted.component.css']
 })
 export class FomattedComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['id', 'acession', 'paciente', 'desc', 'modalidade', 'data', 'impresso', 'salvo'];
+  dataSource: MatTableDataSource<PeriodicElement>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  //saber se o filtro está aberto ou fechado
+  panelOpenState = false;
 
   constructor() {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    //this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA)
   }
+
+
+  //variaveis do filtro 
+  acssionFiltro: string;
+  pacienteFiltro: string;
+  descFiltro: string;
+  modalidadeFiltro: string;
+  dataFiltro: string;
+  impressoFiltro: boolean;
+  salvoFiltro: boolean;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;

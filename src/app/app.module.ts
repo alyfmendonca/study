@@ -25,16 +25,22 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { MatPaginatorModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 import { MatSortModule } from '@angular/material';
 
 import { FomattedComponent } from './fomatted/fomatted.component';
+import { NonformattedComponent } from './nonformatted/nonformatted.component';
+import { PrintComponent } from './print/print.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     FomattedComponent,
+    NonformattedComponent,
+    PrintComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +68,7 @@ import { FomattedComponent } from './fomatted/fomatted.component';
     DragDropModule,
     MatPaginatorModule, 
     MatSortModule,
+    MatExpansionModule,
   ],
   entryComponents: [
     PopupEditComponent,
