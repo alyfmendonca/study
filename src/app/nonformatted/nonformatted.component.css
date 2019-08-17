@@ -1,0 +1,130 @@
+.card {
+    float: top;
+    width: 94%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  
+  table {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background: transparent;
+    margin-top: 24px;
+  }
+  
+  mat-paginator{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background: #e1e1e1;
+  }
+  
+  .header-table {
+    background-color: #004186;
+  }
+  
+  .mat-header-row th {
+    color: white;
+    font-weight: 400;
+  }
+  
+  .mat-row:nth-child(even){
+    background-color: #f2f2f2;
+  }
+  
+  .mat-row:nth-child(odd) {
+    background-color: white;
+  }
+  
+  .line {
+    border-left-style: solid;
+    border-left-color: green;
+    border-left-width: 5px;
+  }
+  
+  .customWidthClass{
+    flex: 0 0 35px;
+    padding: 0 0 0 0 !important;
+  }
+  
+  td.mat-cell, td.mat-footer-cell, th.mat-header-cell{
+    border: none;
+    color: #828282;
+    font-size: 12px;
+  }
+  
+    
+    
+  mat-expansion-panel{
+    width: 95%;
+    margin: auto;
+  }
+  td.mat-cell:first-of-type {
+    padding-left: 24px;
+    border-left: 5px solid #C43B51;
+  }
+  .itemFiltro{
+    border: 1px solid #DF8D2C;
+    border-radius: 3px;
+    padding: 10px;
+    color: #DF8D2C;
+    text-align: center;
+    margin-right: 15px;
+  }
+  mat-panel-title{
+    font-size: 18px;
+    font-weight: 500;
+    color: #004186;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-grow: 0;
+    width: 10%;
+  }
+  .fa-times-circle{
+    margin-left: 5px;
+  }
+  mat-expansion-panel{
+    padding: 10px 0;
+  }
+  .filtroSelect{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    margin-left: -3px; 
+    margin-right: 10px;
+  }
+  .leftFilter{
+    width: 80%;
+    display: flex;
+    margin-top: 20px;
+  }
+  .rightFilter{
+    width: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .checkFilter{
+    display: flex;
+    flex-direction: column;
+  }
+  .btnFiltrar{
+    border: 1px solid #004186;
+    color: #004186;
+    background: transparent;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+  .fa-sliders-h{
+    margin-right: 5px;
+  }
+  mat-checkbox{
+    color: #bdbdbd;
+  }
+  

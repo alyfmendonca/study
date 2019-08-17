@@ -9,6 +9,7 @@ import {ExamComponent} from "./exam/exam.component";
 import {PopupEditComponent} from "./popup-edit/popup-edit.component";
 import { FomattedComponent } from "./fomatted/fomatted.component";
 import { PrintComponent } from './print/print.component';
+import { NonformattedComponent } from './nonformatted/nonformatted.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
@@ -19,7 +20,7 @@ const routes: Routes = [
     children : [
       { path: '', redirectTo: 'nonformatted', pathMatch: 'full' },
       { path: 'formatted', component: FomattedComponent },
-      { path: 'nonformatted', component: ExamListScreenComponent },
+      { path: 'nonformatted', component: NonformattedComponent },
       { path: 'print', component: PrintComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'exam/:id', component: ExamComponent }
