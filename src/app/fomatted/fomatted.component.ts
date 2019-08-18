@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Router} from "@angular/router";
 
 export interface UserData {
   id: string;
@@ -71,13 +72,14 @@ export class FomattedComponent implements OnInit {
   //saber se o filtro está aberto ou fechado
   panelOpenState = false;
 
-  constructor() {
+  constructor(public router: Router) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     //this.dataSource = new MatTableDataSource(users);
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA)
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    
   }
 
 
@@ -102,6 +104,11 @@ export class FomattedComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  redirPrint(elemento){
+    this.router.navigateByUrl("home/exam/1");
+  }
+
 }
 
 /** Builds and returns a new User. */

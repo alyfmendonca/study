@@ -45,12 +45,13 @@ app-settings .mat-checkbox-frame{
   margin: auto;
   cursor: pointer;
 }
-.orangeButton{
+button.orangeButton{
   width: 170px;
   background: orange;
   font-size: 12px;
   margin: auto;
   cursor: pointer;
+  color: #fff;
 }
 button.cleanGreyButton {
   border: 1.5px solid #bdbdbd;
@@ -82,9 +83,20 @@ button.cleanGreyButton {
 
 .mat-radio-outer-circle{
   border-width: 1px !important;
+  width: 15px !important;
+  height: 15px !important;
 }
+.mat-radio-inner-circle{
+  width: 15px !important;
+  height: 15px !important;
+}
+.mat-radio-button .mat-radio-ripple{
+  width: 30px !important;
+  height: 30px !important;
+}
+
 app-exam .mat-radio-label-content{
-  font-size: 13px;
+  font-size: 12px;
   color: #999;
 }
 app-exam mat-radio-button{
@@ -112,4 +124,50 @@ app-exam mat-radio-button{
 }
 .mat-checkbox-checkmark .mat-checkbox-checkmark-path{
   stroke: #004186 !important;
+}
+
+.mat-slide-toggle-bar{
+  width: 26px !important;
+  height: 9px !important;
+}
+.mat-slide-toggle-thumb {
+  height: 14px !important;
+  width: 14px !important;
+}
+.mat-radio-container{
+  width: 15px !important;
+  height: 15px !important;
+}
+.fa-chevron-left:before, .fa-chevron-right:before{
+  border: 1px solid #004186;
+  border-radius: 50%;
+  padding: 3px 4px;
+}
+.fa-chevron-left, .fa-chevron-right{
+  font-size: 8px;
+  color: #004186;
+  cursor: pointer;
+}
+.mat-checkbox-label{
+  font-size: 12px;
+}
+
+app-exam mat-tab-header{
+  display: none !important;
+}
+.imageSlider .fa-chevron-left, .imageSlider .fa-chevron-right{
+  margin: auto;
+  font-size: 18px; 
+}
+
+.imageSlider .fa-chevron-left:before, .imageSlider .fa-chevron-right:before{
+  padding: 5px 8px;
+}
+.imageSlider .fa-chevron-left:before{
+  margin-left: -10px;
+  margin-right: 10px;
+}
+.imageSlider .fa-chevron-right:before{
+  margin-left: 10px;
+  margin-right: -10px;
 }

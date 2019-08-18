@@ -104,6 +104,45 @@ export class ExamComponent implements OnInit {
     document.getElementsByClassName('modalConteudo')[0].setAttribute("style", "display:none;");
 
   }
+
+  chamaPreview(){
+    document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:flex;");
+    document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:block;");
+  }
+  fechaPreview(){
+    document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:none;");
+    document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:none;");
+
+  }
+
+  onClickNext(id){
+    let i = 0
+    let continua = true;
+    while(continua){
+      let tab = document.getElementById(`mat-tab-label-${i}-1`);
+      if(tab){
+        tab.click();
+        continua = false;
+      }else{
+        i++
+      }
+    }
+    
+  }
+  onClickBack(){
+    let i = 0
+    let continua = true;
+    while(continua){
+      let tab = document.getElementById(`mat-tab-label-${i}-0`);
+      if(tab){
+        tab.click();
+        continua = false;
+      }else{
+        i++
+      }
+    }
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupEditComponent, {
       width: '90%',
@@ -148,6 +187,28 @@ export class ExamComponent implements OnInit {
       //nada
     }
   }
+
+  maisUm(valor){
+    if(valor == 'linha'){
+      this.linhasGrid += 1;
+      this.changeLinhas();
+    }else if(valor == 'coluna'){
+      this.colsGrid += 1;
+      this.changeColunas();
+    }
+   
+  }
+  menosUm(valor){
+    if(valor == 'linha'){
+      this.linhasGrid -= 1;
+      this.changeLinhas();
+    }else if(valor == 'coluna'){
+      this.colsGrid -= 1;
+      this.changeColunas();
+    }
+    //this.changeColunas();
+  }
+  
 
   selectSelectionImage(element){
     this.selectedSource = element.src.substring(element.src.indexOf("assets"));

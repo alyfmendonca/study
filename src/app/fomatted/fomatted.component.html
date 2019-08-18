@@ -109,49 +109,49 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.id}} </td>
       </ng-container>
   
       <!-- Progress Column -->
       <ng-container matColumnDef="acession">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ACESSION_NUMBER </th>
-        <td mat-cell *matCellDef="let row"> {{row.acession}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.acession}} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="paciente">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> PACIENTE </th>
-        <td mat-cell *matCellDef="let row"> {{row.paciente}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.paciente}} </td>
       </ng-container>
   
       <!-- Color Column -->
       <ng-container matColumnDef="desc">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIÇÃO </th>
-        <td mat-cell *matCellDef="let row"> {{row.desc}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.desc}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="modalidade">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> MODALIDADE </th>
-        <td mat-cell *matCellDef="let row"> {{row.modalidade}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.modalidade}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DATA DE CRIAÇÃO </th>
-        <td mat-cell *matCellDef="let row"> {{row.data}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.data}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="impresso">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> IMPRESSO </th>
-        <td mat-cell *matCellDef="let row"> {{row.impresso}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.impresso}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="salvo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> SALVO </th>
-        <td mat-cell *matCellDef="let row"> {{row.salvo}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.salvo}} </td>
       </ng-container>
   
 

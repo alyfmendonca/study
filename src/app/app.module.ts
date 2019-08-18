@@ -29,6 +29,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import { MatSortModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { FomattedComponent } from './fomatted/fomatted.component';
 import { NonformattedComponent } from './nonformatted/nonformatted.component';
@@ -69,6 +70,7 @@ import { PrintComponent } from './print/print.component';
     MatPaginatorModule, 
     MatSortModule,
     MatExpansionModule,
+    MatTabsModule,
   ],
   entryComponents: [
     PopupEditComponent,

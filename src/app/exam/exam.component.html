@@ -4,7 +4,7 @@
       <div class="formSelectionOne">
         <h3>Seleção de Mídia</h3>
         <div> 
-            <mat-select class="selectRight">
+            <mat-select class="selectRight" placeholder="Lorem Ipsum">
               <mat-option *ngFor="let midiaOption of midiaOptionList" [value]="midiaOption.value">
                 {{midiaOption.text}}
               </mat-option> 
@@ -14,7 +14,7 @@
       <div class="formSelectionTwo">
         <h3>Seleção do Layout</h3>
         <div>
-            <mat-select class="selectRight" name="teste">
+            <mat-select class="selectRight" name="teste" placeholder="Lorem Ipsum"> 
               <mat-option *ngFor="let layoutOption of layoutOptionList" [value]="layoutOption.value">
                 {{layoutOption.text}}
               </mat-option> 
@@ -39,22 +39,22 @@
         <img src="assets\icons\Ativo 31.png" >
       </div>
       <div class="iconBoxEditor">
-        <img src="assets\icons\Ativo 29.png" > 
+        <img src="assets\icons\rotateLeft.png" > 
       </div>
       <div class="iconBoxEditor">
-        <img src="assets\icons\Ativo 30.png" >
+        <img src="assets\icons\rotateRight.png" >
       </div>
       <div class="iconBoxEditor">
-        <img src="assets\icons\Ativo 38.png" style="width: 50% !important">
+        <img src="assets\icons\Ativo 38.png" style="width: 50% !important;">
       </div>
       <div class="iconBoxEditor">
         <img src="assets\icons\seta-lado.png" >
       </div>
       <div class="iconBoxEditor">
-        <img src="assets\icons\Ativo 32.png" >
+        <img src="assets\icons\caixa-texto.png" >
       </div>
       <div class="iconBoxEditor">
-        <img src="assets\icons\Ativo 47.png" >
+        <img src="assets\icons\regua.png" style="width: 50% !important;">
       </div>
     </div>
     <div (click)="chama()" class="formFilter">
@@ -77,7 +77,7 @@
     </div>
     <div class="div-buttons">
       <div class="div-right">
-        <button mat-raised-button [color]="color" class="greyButton" (click)="openDialog()" >PREVIEW</button>
+        <button mat-raised-button [color]="color" class="greyButton" (click)="chamaPreview()" >PREVIEW</button>
         <button mat-raised-button [color]="color" class="orangeButton">SALVAR</button>
         <button mat-raised-button [color]="color" (click)="openDialog()">IMPRIMIR</button>
       </div>
@@ -88,24 +88,28 @@
   <mat-card class="card card-tools">
     <div class="containerPaiTools">
       <div class="formToolsGrid">
-        <h3>Ferramentas</h3>
+        <h3 class="rightTitle">Ferramentas</h3>
         <div class="inputNumber">
           <label>Colunas</label>
-          <input type="number" placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();">
+          <div>
+            <i (click)="menosUm('coluna');"  class="fas fa-chevron-left"></i><input type="text" disabled placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();"><i (click)="maisUm('coluna');" class="fas fa-chevron-right"></i>
+          </div>
         </div>
-        <br>
+        
         <div class="inputNumber">
           <label>Linhas</label>
-          <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+          <div>
+            <i (click)="menosUm('linha');"  class="fas fa-chevron-left"></i><input type="text" disabled [(ngModel)]="linhasGrid" (change)="changeLinhas();"><i (click)="maisUm('linha');" class="fas fa-chevron-right"></i>
+          </div>
         </div>
-        <br>
+        
       </div>
       <div class="formToolsEscopo">
-        <h3>Escopo por Frame</h3>
+        <h3 class="rightTitle">Escopo por Frame</h3>
         <mat-radio-group [(ngModel)]="selectedScope"> 
-        <mat-radio-button class="rdButtonScopes" *ngFor="let scope of scopes" [value]="scope">
-          {{scope.text}}
-        </mat-radio-button> 
+          <mat-radio-button class="rdButtonScopes" *ngFor="let scope of scopes" [value]="scope">
+            {{scope.text}}
+          </mat-radio-button> 
       </mat-radio-group>
       <br>
       <section class="scopeSection">
@@ -147,10 +151,10 @@
                 <img style="width: 70% !important;" src="assets\icons\Ativo 40.png" >
               </div>
               <div class="iconBox">
-                <img src="assets\icons\Ativo 29.png" >
+                <img src="assets\icons\rotateLeft.png" >
               </div>
               <div class="iconBox">
-                <img src="assets\icons\Ativo 30.png" >
+                <img src="assets\icons\rotateRight.png" >
               </div>
             </div>
       </div>
@@ -197,11 +201,16 @@
       <h3>Ferramentas</h3>
       <div class="inputNumber">
         <label>Colunas</label>
-        <input type="number" placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();">
+        <div>
+          <i (click)="menosUm('coluna');"  class="fas fa-chevron-left"></i><input type="text" disabled placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();"><i (click)="maisUm('coluna');" class="fas fa-chevron-right"></i>
+        </div>
       </div>
+      
       <div class="inputNumber">
         <label>Linhas</label>
-        <input type="number"  [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+        <div>
+          <i (click)="menosUm('linha');"  class="fas fa-chevron-left"></i><input type="text" disabled [(ngModel)]="linhasGrid" (change)="changeLinhas();"><i (click)="maisUm('linha');" class="fas fa-chevron-right"></i>
+        </div>
       </div>
       <div class="card-modalidades firstContent">
       <mat-card class="card-modalidade" *ngFor="let modalidade of mockedModalidades">
@@ -229,13 +238,13 @@
       </div>
       <div class="lineIcons">
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 41.png" >
+          <img src="assets\icons\seta-lado.png" >
         </div>
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 28.png" >
+          <img src="assets\icons\caixa-texto.png" >
         </div>
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 48.png" >
+          <img src="assets\icons\regua.png" style="width: 50% !important;">
         </div>
 
       </div>
@@ -256,31 +265,31 @@
       </div>
       <div class="lineIcons">
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 47.png" >
+          <img src="assets\icons\rotateLeft.png" >
         </div>
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 46.png" >
-        </div>
-    
-      </div>
-      <div class="lineIcons">
-        <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 47.png" >
-        </div>
-        <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 46.png" >
+          <img src="assets\icons\rotateRight.png" >
         </div>
     
       </div>
       <div class="lineIcons">
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 41.png" >
+          <img src="assets\icons\expandX.png" >
         </div>
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 28.png" >
+          <img src="assets\icons\expandY.png" style="width: 50% !important;">
+        </div>
+    
+      </div>
+      <div class="lineIcons">
+        <div class="iconBoxBigger">
+          <img src="assets\icons\circle.png" >
         </div>
         <div class="iconBoxBigger">
-          <img src="assets\icons\Ativo 48.png" >
+          <img src="assets\icons\doubleCircle.png" >
+        </div>
+        <div class="iconBoxBigger">
+          <img src="assets\icons\setting.png" >
         </div>
 
       </div>
@@ -298,16 +307,27 @@
 
 
 <!-- MODAL PREVIEW -->
-<!-- <div (click)="fechaPreview()" class="modalAjuste">
+<div (click)="fechaPreview()" class="modalPreview">
   
   
 </div>
 
 <div class="modalConteudoPreview">
-  <i (click)="fecha()" class="fas fa-times"></i>
-  <div class="content1">
+  <i (click)="fechaPreview()" class="fas fa-times"></i>
+  <div class="contentTitle">
     <h3 class="MainTitle">Preview</h3>
-    
-     
   </div>
-</div> -->
+  <div class="imageSlider">
+    <i (click)="onClickBack();"  class="fas fa-chevron-left"></i>
+    <mat-tab-group>
+      <mat-tab label="First"> <img src="assets\img\preview.png" alt=""></mat-tab>
+      <mat-tab label="Second"> <img src="assets\img\preview.png" alt=""> </mat-tab>
+    </mat-tab-group>
+    <i (click)="onClickNext();" class="fas fa-chevron-right"></i>
+  </div>
+  <div class="rodapePreview">
+    <i (click)="onClickBack();"  class="fas fa-chevron-left"></i>
+    <p>Página 1 - 10</p>
+    <i (click)="onClickNext();" class="fas fa-chevron-right"></i>
+  </div>
+</div>

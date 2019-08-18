@@ -74,6 +74,7 @@ td.mat-cell:first-of-type {
   color: #DF8D2C;
   text-align: center;
   margin-right: 15px;
+  font-size: 12px;
 }
 mat-panel-title{
   font-size: 18px;
@@ -99,6 +100,7 @@ mat-expansion-panel{
   margin-right: 10px;
   width: 20%;
   margin-bottom: 15px;
+  font-size: 12px;
 }
 .leftFilter{
   width: 80%;
