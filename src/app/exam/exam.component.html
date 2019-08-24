@@ -4,9 +4,18 @@
       <div class="formSelectionOne">
         <h3>Seleção de Mídia</h3>
         <div> 
-            <mat-select class="selectRight" placeholder="Lorem Ipsum">
-              <mat-option *ngFor="let midiaOption of midiaOptionList" [value]="midiaOption.value">
-                {{midiaOption.text}}
+            <mat-select  (selectionChange)="testemudanca($event)" class="selectRight" placeholder="Seleção de Mídia">
+              <mat-option value="a4">
+                Folha A4
+              </mat-option> 
+              <mat-option value="a4hori">
+                Folha A4 (Horizontal)
+              </mat-option> 
+              <mat-option value="a3">
+                Folha A3
+              </mat-option> 
+              <mat-option value="a3hori">
+                Folha A3 (Horizontal)
               </mat-option> 
             </mat-select>
           </div>
@@ -63,23 +72,29 @@
   </mat-card>
 
   <mat-card class="card card-images">
-    <div class="div-grid"> 
-      <mat-grid-list [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
-        <mat-grid-tile
-          *ngFor="let tile of tiles"
-          [colspan]="tile.cols"
-          [rowspan]="tile.rows">
-          <div class="center-cropped" (click)="selectGridImage($event.target)">
-            <img src="">
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list> 
+    <div class="div-grid" > 
+      <!-- TESTE TAMANHO FOLHA  -->
+
+      
+      <div id="divGrid" class="tamanhoA4">
+        <mat-grid-list [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
+          <mat-grid-tile
+            *ngFor="let tile of tiles"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows">
+            <div class="center-cropped" (click)="selectGridImage($event.target)">
+              <img src="">
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      
     </div>
     <div class="div-buttons">
       <div class="div-right">
         <button mat-raised-button [color]="color" class="greyButton" (click)="chamaPreview()" >PREVIEW</button>
         <button mat-raised-button [color]="color" class="orangeButton">SALVAR</button>
-        <button mat-raised-button [color]="color" (click)="openDialog()">IMPRIMIR</button>
+        <button mat-raised-button [color]="color" (click)="chamarImpressao()">IMPRIMIR</button>
       </div>
     </div>
 

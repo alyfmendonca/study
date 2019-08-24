@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {PopupEditComponent} from "../popup-edit/popup-edit.component";
+import domtoimage from 'dom-to-image';
+import * as jspdf from 'jspdf';
 
 export interface Tile {
   color: string;
@@ -78,6 +80,8 @@ export class ExamComponent implements OnInit {
 
   selectedScope:number = 1;
   selectedEditor:number = 1;
+
+  divGrid = document.getElementById("divGrid");
   
   mockedModalidades: any[] = 
   [
@@ -113,6 +117,26 @@ export class ExamComponent implements OnInit {
     document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:none;");
     document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:none;");
 
+  }
+
+  testemudanca(evento){
+    this.divGrid = document.getElementById("divGrid");
+    console.log(this.divGrid);
+    console.log(evento.value);
+    if(evento.value == "a4"){
+      this.divGrid.className = "";;
+      this.divGrid.classList.add("tamanhoA4");
+    }else if(evento.value == "a3"){
+      this.divGrid.className = "";;
+      this.divGrid.classList.add("tamanhoA3");
+    }else if(evento.value == "a4hori"){
+      this.divGrid.className = "";;
+      this.divGrid.classList.add("tamanhoA4Hori");
+    }
+    else if(evento.value == "a3hori"){
+      this.divGrid.className = "";;
+      this.divGrid.classList.add("tamanhoA3Hori");
+    }
   }
 
   onClickNext(id){
@@ -217,6 +241,60 @@ export class ExamComponent implements OnInit {
   selectGridImage(element){
       element.children[0].src = this.selectedSource;
       element.className = "center-cropped-wsrc";
+  }
+
+  chamarImpressao(){
+    var node = document.getElementById('divGrid');
+
+    var img;
+    var filename;
+    var newImage;
+
+
+    domtoimage.toPng(node, { bgcolor: '#000' })
+
+      .then(function(dataUrl) {
+
+        img = new Image();
+        img.src = dataUrl;
+        newImage = img.src;
+
+        img.onload = function(){
+
+        var pdfWidth = img.width;
+        var pdfHeight = img.height;
+
+          // FileSaver.saveAs(dataUrl, 'my-pdfimage.png'); // Save as Image
+
+          var doc;
+
+          if(pdfWidth > pdfHeight)
+          {
+            doc = new jspdf('l', 'px', [pdfWidth , pdfHeight]);
+          }
+          else
+          {
+            doc = new jspdf('p', 'px', [pdfWidth , pdfHeight]);
+          }
+
+
+          var width = doc.internal.pageSize.getWidth();
+          var height = doc.internal.pageSize.getHeight();
+
+
+          doc.addImage(newImage, 'PNG',  0, 0, width, height);
+          filename = 'exame' + '.pdf';
+          doc.save(filename);
+
+        };
+
+
+      })
+      .catch(function(error) {
+
+        // Error Handling
+
+      });
   }
 
 }
