@@ -76,8 +76,8 @@
       <!-- TESTE TAMANHO FOLHA  -->
 
       
-      <div id="divGrid" class="tamanhoA4">
-        <mat-grid-list [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
+      <div class="tamanhoA4">
+        <mat-grid-list id="divGrid" [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
           <mat-grid-tile
             *ngFor="let tile of tiles"
             [colspan]="tile.cols"
