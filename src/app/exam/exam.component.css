@@ -67,7 +67,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
-  margin: 8px 8px 8px 8px;
   position: relative;
   transition: transform 0.3s;
 }
@@ -78,7 +77,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
-  margin: 8px 8px 8px 8px;
   position: relative;
   background-image: unset;
   transition: transform 0.3s;
@@ -86,8 +84,7 @@
 
 
 /* Set the image to fill its parent and make transparent */
-.center-cropped img,
-.center-cropped-wsrc img {
+.center-cropped-img {
   width: auto;
   height: 100%;
   margin: auto;
@@ -495,6 +492,7 @@ div.tamanhoa4 {
   margin: 0 auto;
   margin-bottom: 0.5cm;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  align-items: center;
 }
 .tamanhoA4 {  
   width: 353px;
@@ -545,4 +543,38 @@ div[size="A5"][layout="landscape"] {
 
 #divGrid mat-grid-tile{
   border: 1px solid white;
+}
+
+.maiorWidth{
+  width: auto;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* modern browsers */
+  opacity: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.maiorHeight{
+  width: 100%;
+  height: auto;
+  margin: auto; 
+  position: absolute;
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* modern browsers */
+  opacity: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }

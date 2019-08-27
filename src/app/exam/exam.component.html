@@ -4,7 +4,7 @@
       <div class="formSelectionOne">
         <h3>Seleção de Mídia</h3>
         <div> 
-            <mat-select  (selectionChange)="testemudanca($event)" class="selectRight" placeholder="Seleção de Mídia">
+            <mat-select  (selectionChange)="testemudanca($event)" class="selectRight" placeholder="Folha A4">
               <mat-option value="a4">
                 Folha A4
               </mat-option> 
@@ -83,7 +83,7 @@
             [colspan]="tile.cols"
             [rowspan]="tile.rows">
             <div class="center-cropped" (click)="selectGridImage($event.target)">
-              <img src="">
+              <img class="center-cropped-img" src="">
             </div>
           </mat-grid-tile>
         </mat-grid-list>
@@ -94,7 +94,7 @@
       <div class="div-right">
         <button mat-raised-button [color]="color" class="greyButton" (click)="chamaPreview()" >PREVIEW</button>
         <button mat-raised-button [color]="color" class="orangeButton" (click)="chamarImpressao()">SALVAR</button>
-        <button mat-raised-button [color]="color">IMPRIMIR</button>
+        <button mat-raised-button (click)="chamaPrint()" [color]="color">IMPRIMIR</button>
       </div>
     </div>
 

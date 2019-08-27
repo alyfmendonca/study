@@ -66,6 +66,9 @@ export class ExamComponent implements OnInit {
     {text: 'Layoute 1', value: 1},
     {text: 'Layoute 2', value: 2},
     {text: 'Layoute 3', value: 3},
+    {text: 'Layoute 4', value: 4},
+    {text: 'Layoute 5', value: 5},
+    {text: 'Layoute 6', value: 6},
   ]
 
   color = "primary";
@@ -167,7 +170,41 @@ export class ExamComponent implements OnInit {
         this.colsGrid = 2;
         this.linhasGrid = 2;
       }else if(evento.value == 3){
-
+        this.tiles = [
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
+        ]
+        this.colsGrid = 2;
+        this.linhasGrid = 2;
+      }else if(evento.value == 4){
+        this.tiles = [
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+        ]
+        this.colsGrid = 3;
+        this.linhasGrid = 2;
+      }else if(evento.value == 5){
+        this.tiles = [
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'}
+        ]
+        this.colsGrid = 2;
+        this.linhasGrid = 2;
+      }else if(evento.value == 6){
+        this.tiles = [
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+        ]
+        this.colsGrid = 2;
+        this.linhasGrid = 3;
       }
       
     }
@@ -276,6 +313,16 @@ export class ExamComponent implements OnInit {
   selectGridImage(element){
       element.children[0].src = this.selectedSource;
       element.className = "center-cropped-wsrc";
+
+      //relaciona classe com o tamanho
+      if(element.width > element.height){
+        element.firstElementChild.classList.remove("center-cropped-img");
+        element.firstElementChild.classList.add("maiorWidth");
+      }else{
+        element.firstElementChild.classList.remove("center-cropped-img");
+        element.firstElementChild.classList.add("maiorHeight");
+      }
+
   }
 
   chamarImpressao(){
@@ -330,6 +377,15 @@ export class ExamComponent implements OnInit {
         // Error Handling
 
       });
+  }
+
+  chamaPrint(){
+    const printContents = document.getElementById('divGridSalvar').innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
   }
 
 }
