@@ -69,7 +69,6 @@
   overflow: hidden;
   margin: 8px 8px 8px 8px;
   position: relative;
-  background-image: url('http://placehold.it/200x200');
   transition: transform 0.3s;
 }
 
@@ -85,16 +84,12 @@
   transition: transform 0.3s;
 }
 
-.center-cropped:hover,
-.center-cropped-wsrc:hover {
-  transform: scale(1.1);
-}
 
 /* Set the image to fill its parent and make transparent */
 .center-cropped img,
 .center-cropped-wsrc img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   margin: auto;
   position: absolute;
   /* IE 8 */
@@ -546,4 +541,8 @@ div[size="A5"][layout="landscape"] {
     margin: 0;
     box-shadow: 0;
   }
+}
+
+#divGrid mat-grid-tile{
+  border: 1px solid white;
 }

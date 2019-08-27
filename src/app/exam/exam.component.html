@@ -23,7 +23,7 @@
       <div class="formSelectionTwo">
         <h3>Seleção do Layout</h3>
         <div>
-            <mat-select class="selectRight" name="teste" placeholder="Lorem Ipsum"> 
+            <mat-select (selectionChange)="mudancaLayoute($event);" class="selectRight" name="layoute" placeholder="Customizado"> 
               <mat-option *ngFor="let layoutOption of layoutOptionList" [value]="layoutOption.value">
                 {{layoutOption.text}}
               </mat-option> 
@@ -73,11 +73,11 @@
 
   <mat-card class="card card-images">
     <div class="div-grid" > 
-      <!-- TESTE TAMANHO FOLHA  -->
+      <!-- TAMANHO FOLHA  -->
 
       
-      <div class="tamanhoA4">
-        <mat-grid-list id="divGrid" [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
+      <div id="divGrid" class="tamanhoA4">
+        <mat-grid-list id="divGridSalvar" [cols]="colsGrid" fxFlex="fxFill" fxLayoutAlign="center center" [gutterSize]="'2px'">
           <mat-grid-tile
             *ngFor="let tile of tiles"
             [colspan]="tile.cols"
@@ -93,8 +93,8 @@
     <div class="div-buttons">
       <div class="div-right">
         <button mat-raised-button [color]="color" class="greyButton" (click)="chamaPreview()" >PREVIEW</button>
-        <button mat-raised-button [color]="color" class="orangeButton">SALVAR</button>
-        <button mat-raised-button [color]="color" (click)="chamarImpressao()">IMPRIMIR</button>
+        <button mat-raised-button [color]="color" class="orangeButton" (click)="chamarImpressao()">SALVAR</button>
+        <button mat-raised-button [color]="color">IMPRIMIR</button>
       </div>
     </div>
 
@@ -107,14 +107,18 @@
         <div class="inputNumber">
           <label>Colunas</label>
           <div>
-            <i (click)="menosUm('coluna');"  class="fas fa-chevron-left"></i><input type="text" disabled placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();"><i (click)="maisUm('coluna');" class="fas fa-chevron-right"></i>
+            <i (click)="menosUm('coluna');"  class="fas fa-chevron-left"></i>
+            <input type="text" disabled placeholder="" [(ngModel)]="colsGrid" (change)="changeColunas();">
+            <i (click)="maisUm('coluna');" class="fas fa-chevron-right"></i>
           </div>
         </div>
         
         <div class="inputNumber">
           <label>Linhas</label>
           <div>
-            <i (click)="menosUm('linha');"  class="fas fa-chevron-left"></i><input type="text" disabled [(ngModel)]="linhasGrid" (change)="changeLinhas();"><i (click)="maisUm('linha');" class="fas fa-chevron-right"></i>
+            <i (click)="menosUm('linha');"  class="fas fa-chevron-left"></i>
+            <input type="text" disabled [(ngModel)]="linhasGrid" (change)="changeLinhas();">
+            <i (click)="maisUm('linha');" class="fas fa-chevron-right"></i>
           </div>
         </div>
         

@@ -62,9 +62,10 @@ export class ExamComponent implements OnInit {
   ]
 
   layoutOptionList: any[] = [
-    {text: 'Lorem Ipsum', value: 1},
-    {text: 'Lorem Ipsum Lorem', value: 2},
-    {text: 'Lorem Lorem', value: 3},
+    {text: 'Customizado', value: 0},
+    {text: 'Layoute 1', value: 1},
+    {text: 'Layoute 2', value: 2},
+    {text: 'Layoute 3', value: 3},
   ]
 
   color = "primary";
@@ -81,7 +82,9 @@ export class ExamComponent implements OnInit {
   selectedScope:number = 1;
   selectedEditor:number = 1;
 
-  divGrid = document.getElementById("divGrid");
+  flagCustom: boolean = true;
+
+  divGrid = document.getElementById("divGridSalvar");
   
   mockedModalidades: any[] = 
   [
@@ -138,6 +141,36 @@ export class ExamComponent implements OnInit {
       this.divGrid.classList.add("tamanhoA3Hori");
     }
   }
+
+    mudancaLayoute(evento){
+      switch (evento.value) {
+        case 0:
+          this.tiles = [];
+          this.flagCustom = true;
+          break;
+        default:
+            this.flagCustom = false;
+          break;
+      }
+
+      if(evento.value == 1){
+        this.tiles = [
+          {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+        ]
+        this.colsGrid = 1;
+        this.linhasGrid = 1;
+      }else if(evento.value == 2){
+        this.tiles = [
+          {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
+          {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
+        ]
+        this.colsGrid = 2;
+        this.linhasGrid = 2;
+      }else if(evento.value == 3){
+
+      }
+      
+    }
 
   onClickNext(id){
     let i = 0
@@ -213,24 +246,26 @@ export class ExamComponent implements OnInit {
   }
 
   maisUm(valor){
-    if(valor == 'linha'){
-      this.linhasGrid += 1;
-      this.changeLinhas();
-    }else if(valor == 'coluna'){
-      this.colsGrid += 1;
-      this.changeColunas();
+    if(this.flagCustom){
+      if(valor == 'linha'){
+            this.linhasGrid += 1;
+            this.changeLinhas();
+          }else if(valor == 'coluna'){
+            this.colsGrid += 1;
+            this.changeColunas();
+          }
     }
-   
   }
   menosUm(valor){
-    if(valor == 'linha'){
-      this.linhasGrid -= 1;
-      this.changeLinhas();
-    }else if(valor == 'coluna'){
-      this.colsGrid -= 1;
-      this.changeColunas();
+    if(this.flagCustom){
+      if(valor == 'linha'){
+        this.linhasGrid -= 1;
+        this.changeLinhas();
+      }else if(valor == 'coluna'){
+        this.colsGrid -= 1;
+        this.changeColunas();
+      }
     }
-    //this.changeColunas();
   }
   
 
@@ -244,7 +279,7 @@ export class ExamComponent implements OnInit {
   }
 
   chamarImpressao(){
-    var node = document.getElementById('divGrid');
+    var node = document.getElementById('divGridSalvar');
 
     var img;
     var filename;
