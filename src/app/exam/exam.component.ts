@@ -3,6 +3,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {PopupEditComponent} from "../popup-edit/popup-edit.component";
 import domtoimage from 'dom-to-image';
 import * as jspdf from 'jspdf';
+import { StudyService } from '../service/study.service';
+import { PrintReq } from '../model/pintResponse';
 
 export interface Tile {
   color: string;
@@ -100,7 +102,7 @@ export class ExamComponent implements OnInit {
 
   selectedSource:string = "";
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public studyService: StudyService) { }
 
   ngOnInit() {
   }
@@ -379,13 +381,106 @@ export class ExamComponent implements OnInit {
       });
   }
 
-  chamaPrint(){
-    const printContents = document.getElementById('divGridSalvar').innerHTML;
-    const originalContents = document.body.innerHTML;
 
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
+  fileReq: PrintReq = {
+    file: "",
+    printer_id: null,
+  };
+  async fazPDF(){
+    // const printContents = document.getElementById('divGridSalvar').innerHTML;
+    // const originalContents = document.body.innerHTML;
+
+    // document.body.innerHTML = printContents;
+    // window.print();
+    // document.body.innerHTML = originalContents;
+
+    var node = document.getElementById('divGridSalvar');
+
+    var img;
+    var filename;
+    var newImage;
+
+
+    await domtoimage.toPng(node, { bgcolor: '#000' })
+
+      .then(function(dataUrl) {
+
+        img = new Image();
+        img.src = dataUrl;
+        newImage = img.src;
+
+        img.onload = function(){
+
+          let fileReq: PrintReq = {
+            file: "",
+            printer_id: null,
+          };
+
+        var pdfWidth = img.width;
+        var pdfHeight = img.height;
+
+          // FileSaver.saveAs(dataUrl, 'my-pdfimage.png'); // Save as Image
+
+          var doc;
+
+          if(pdfWidth > pdfHeight)
+          {
+            doc = new jspdf('l', 'px', [pdfWidth , pdfHeight]);
+          }
+          else
+          {
+            doc = new jspdf('p', 'px', [pdfWidth , pdfHeight]);
+          }
+
+
+          var width = doc.internal.pageSize.getWidth();
+          var height = doc.internal.pageSize.getHeight();
+
+
+          doc.addImage(newImage, 'PNG',  0, 0, width, height);
+          filename = 'exame' + '.pdf';
+          //doc.save(filename);
+          console.log(doc);
+
+          var blob = doc.output('blob');
+          var formData = new FormData();
+          formData.append('pdf', blob);
+          console.log(formData);
+          fileReq.file = blob;
+
+          // this.studyService.sendPrint(blob).subscribe(response => {
+          //   console.log(response);
+          // })
+
+          fileReq.printer_id = 2;
+          console.log(fileReq);
+          this.studyService.sendPrint(fileReq).subscribe(response => {
+            console.log(response);
+          }, (err) => {
+            console.log(err);
+          })
+        }.bind(this);
+      }.bind(this))
+      .catch(function(error) {
+
+        // Error Handling
+
+      });
+      
+      
+
+  }
+
+  async chamaPrint(){
+
+    await this.fazPDF();
+    console.log(this.fileReq);
+
+    // this.fileReq.printer_id = 2;
+    // console.log(this.fileReq);
+    // this.studyService.sendPrint(this.fileReq).subscribe(response => {
+    //   console.log(response);
+    // })
   }
 
 }

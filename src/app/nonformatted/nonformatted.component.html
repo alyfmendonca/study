@@ -109,7 +109,7 @@
   </mat-accordion>
   
   <div>
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <table mat-table [dataSource]="study" matSort class="mat-elevation-z8">
   
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>
@@ -137,31 +137,31 @@
       <!-- Progress Column -->
       <ng-container matColumnDef="acession">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ACESSION_NUMBER </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.acession}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.accession_number}} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="paciente">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> PACIENTE </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.paciente}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.pat_full_name}} </td>
       </ng-container>
   
       <!-- Color Column -->
       <ng-container matColumnDef="desc">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIÇÃO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.desc}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.description}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="modalidade">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> MODALIDADE </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.modalidade}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.mod_full_name}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DATA DE CRIAÇÃO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.data}} </td>
+        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.study_date}} </td>
       </ng-container>
 
       <!-- Color Column -->

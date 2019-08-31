@@ -4,6 +4,8 @@ import {MatSort} from '@angular/material/sort';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import {StudyService} from "../service/study.service";
+import { Study } from '../model/study';
 
 export interface UserData {
   id: string;
@@ -65,6 +67,8 @@ export class NonformattedComponent implements OnInit {
   displayedColumns: string[] = ['id', 'acession', 'paciente', 'desc', 'modalidade', 'data', 'impresso', 'salvo'];
   dataSource: MatTableDataSource<PeriodicElement>;
 
+  study: Study [] = [];
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -99,7 +103,7 @@ export class NonformattedComponent implements OnInit {
     this.router.navigateByUrl("home/exam/1");
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private studyService: StudyService) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -121,6 +125,12 @@ export class NonformattedComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    // Loading Studies:
+    this.studyService.getStudies().subscribe( data => {
+      this.study = data;
+      console.log(this.study);
+    });
   }
 
   applyFilter(filterValue: string) {

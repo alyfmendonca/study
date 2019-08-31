@@ -4,6 +4,7 @@ export interface Study {
   mod_full_name : string, 
   study_date : String,
   institution_site_id : String
+  pat_full_name: String
 }
 
 
