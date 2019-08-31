@@ -19,7 +19,7 @@ export class StudyService {
     const options = {
       headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
       params: new HttpParams().set('id', '4')
-    }
+    };
 
     return this.http.get<Study[]>(AppConstants.baseURL + "institutionSite/getStudiesById", options);
   }
