@@ -148,40 +148,109 @@
             {{modalidade.MODALITY}}
         </mat-card>
     </mat-card>
-    <mat-card cdkDropList #todoList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="mockedDicomTags" [cdkDropListConnectedTo]="[doneList, doneList2, doneList3, doneList4]" class="card-modalidades secondContent">
-        <h3>DicomTAG</h3>
-        <mat-card class="card-dicomtag"  *ngFor="let dicomtag of mockedDicomTags" cdkDrag>
-            {{dicomtag}} 
+    <div class="rightModalidades">
+        <mat-card cdkDropList #todoList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="mockedDicomTags" [cdkDropListConnectedTo]="[doneList, doneList2, doneList3, doneList4]" class="card-modalidades secondContent">
+            <h3>DicomTAG</h3>
+            <mat-card class="card-dicomtag"  *ngFor="let dicomtag of mockedDicomTags" cdkDrag>
+                {{dicomtag}} 
+            </mat-card>
         </mat-card>
-    </mat-card>
-    <mat-card class="card-modalidades thirdContent">
-        <div class="label-blocos">
-            <h3>Imagem</h3>
-        </div>
-        <div class="div-imagem-blocos">
-            <div cdkDropList #doneList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped" [cdkDropListConnectedTo]="[todoList, doneList2, doneList3, doneList4]" class="bloco">
-                    <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped" cdkDrag>
+        <mat-card class="card-modalidades thirdContent">
+            <div class="label-blocos">
+                <h3>Imagem</h3>
+            </div>
+            <div class="div-imagem-blocos">
+                <div cdkDropList #doneList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped" [cdkDropListConnectedTo]="[todoList, doneList2, doneList3, doneList4]" class="bloco">
+                        <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped" cdkDrag>
+                                {{dicomtag}} <i class="fas fa-times-circle"></i>
+                        </mat-card>
+                </div>
+    
+                <div cdkDropList #doneList2="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped2" [cdkDropListConnectedTo]="[todoList, doneList, doneList3, doneList4]" class="bloco">
+                    <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped2" cdkDrag>
                             {{dicomtag}} <i class="fas fa-times-circle"></i>
                     </mat-card>
+                </div>
+                <div cdkDropList #doneList3="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped3" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList4]" class="bloco">
+                    <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped3" cdkDrag>
+                            {{dicomtag}} <i class="fas fa-times-circle"></i>
+                    </mat-card>
+                </div>
+                <div cdkDropList #doneList4="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped4" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList3]" class="bloco">
+                    <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped4" cdkDrag>
+                            {{dicomtag}}  <i class="fas fa-times-circle"></i>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card>
+
+        <mat-card class="card-modalidades cabecalhoContent">
+            <div class="label-blocos">
+                <h3>Cabeçalho</h3>
+            </div>
+            
+            <div class="flexLine">
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                    
+                </div>
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                </div>
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                </div> 
+            </div>
+            <div class="previewCabRod" id="cabecalhoPreview"> 
+
             </div>
 
-            <div cdkDropList #doneList2="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped2" [cdkDropListConnectedTo]="[todoList, doneList, doneList3, doneList4]" class="bloco">
-                <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped2" cdkDrag>
-                        {{dicomtag}} <i class="fas fa-times-circle"></i>
-                </mat-card>
+            <div class="label-blocos">
+                <h3>Rodapé</h3>
             </div>
-            <div cdkDropList #doneList3="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped3" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList4]" class="bloco">
-                <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped3" cdkDrag>
-                        {{dicomtag}} <i class="fas fa-times-circle"></i>
-                </mat-card>
+            <div class="flexLine">
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                    
+                </div>
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                </div>
+                <div class="cabecalhoItem">
+                    <div id="cabecalhoBtns">
+                        <button class="ligthBlueButton">Imagem</button>
+                        <br>
+                        <button class="tradicionalButton">Texto</button>
+                    </div>
+                </div> 
             </div>
-            <div cdkDropList #doneList4="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="listDicomDropped4" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList3]" class="bloco">
-                <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of listDicomDropped4" cdkDrag>
-                        {{dicomtag}}  <i class="fas fa-times-circle"></i>
-                </mat-card>
-            </div>
-        </div>
-    </mat-card>
 
+            <div class="previewCabRod" id="rodapePreview"> 
+
+            </div>
+        </mat-card>
+    
+    </div>
+    
     
 </div>

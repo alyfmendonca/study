@@ -247,6 +247,19 @@ mat-card .formOprtionsEditor{
   display: flex;
   display: none;
 }
+.modalPrinter{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.69);
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  display: none;
+}
 .modalConteudo {
   background: #fff;
   border-radius: 3px;
@@ -277,7 +290,26 @@ mat-card .formOprtionsEditor{
   top: 10px;
   margin-top: 3%;
 }
-
+.modalConteudoPrinter{
+  background: #fff;
+  border-radius: 3px;
+  width: 30%;
+  height: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: flex;
+  padding: 30px 50px;
+  display: none;
+  position: absolute;
+  z-index: 999999;
+  margin-left: 28%;
+  top: 10px;
+  margin-top: 3%;
+}
+table.tabelaPrinter{
+  box-shadow: none;
+  width: 100%;
+}
 h3.MainTitle{
   font-family: Roboto;
   font-style: normal;

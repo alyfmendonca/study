@@ -147,14 +147,13 @@
 }
 .firstContent,
 .secondContent{
-    width: 20%;
+    width: 25%;
     font-size: 14px;
     font-weight: 700;
     color: #004186;
 }
 .thirdContent{
-    width: 50%;
-    margin-right: 20px;
+    width: 62%;
 }
 
 .card-dicomtag{
@@ -231,4 +230,29 @@ table.mat-elevation-z8.aetitleTable.mat-table th{
 }
 .card-dicomtagAdd i {
     float: right;
+}
+.rightModalidades{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.cabecalhoContent{
+    width: 93%;
+}
+.cabecalhoItem{
+    width: 27%;
+    height: 40%;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    padding: 10px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flexLine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

@@ -156,7 +156,8 @@ export class SettingsComponent implements OnInit {
               this.handlePrinterAddData(data)
             },
             error => {
-              Swal.fire('Erro ao adicionar impessora!', 'erro: ' + error, 'error')
+              Swal.fire('Erro ao adicionar impessora!', 'erro: ' + error, 'error');
+              console.log(error);
             });
   }
 

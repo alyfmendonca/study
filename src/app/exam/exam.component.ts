@@ -3,8 +3,12 @@ import {MatDialog} from "@angular/material/dialog";
 import {PopupEditComponent} from "../popup-edit/popup-edit.component";
 import domtoimage from 'dom-to-image';
 import * as jspdf from 'jspdf';
+import { MatTableDataSource } from '@angular/material';
 import { StudyService } from '../service/study.service';
 import { PrintReq } from '../model/pintResponse';
+import {PrinterService} from '../service/printer.service';
+import Swal from "sweetalert2";
+import {Printer, PrinterList, PrinterObj} from '../model/printer';
 
 export interface Tile {
   color: string;
@@ -87,6 +91,7 @@ export class ExamComponent implements OnInit {
   selectedScope:number = 1;
   selectedEditor:number = 1;
 
+  ImagesSerie: String[];
   flagCustom: boolean = true;
 
   divGrid = document.getElementById("divGridSalvar");
@@ -102,9 +107,27 @@ export class ExamComponent implements OnInit {
 
   selectedSource:string = "";
 
-  constructor(public dialog: MatDialog, public studyService: StudyService) { }
+  printerColumns: string[] = ['NOME', 'IP', 'TRAY', 'PAPER']
+  printerSource = new MatTableDataSource<Printer>();
+
+  constructor(public dialog: MatDialog, public studyService: StudyService, public printerService:PrinterService) { }
 
   ngOnInit() {
+
+    this.printerService.getPrinters().subscribe(data => {
+      this.handlePrinterData(data)
+    },
+    error => {
+      Swal.fire('Erro ao buscar impessoras!', 'erro: ' + error, 'error')
+    });
+
+    this.studyService.getImages(20).subscribe(response => {
+      console.log(response['images']);
+      this.ImagesSerie = response['images'];
+    });
+  }
+  handlePrinterData(data: PrinterList){
+    this.printerSource.data = data.printers
   }
 
   chama(){
@@ -116,16 +139,54 @@ export class ExamComponent implements OnInit {
     document.getElementsByClassName('modalConteudo')[0].setAttribute("style", "display:none;");
 
   }
-
+  imageUrl: string;
   chamaPreview(){
-    document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:flex;");
-    document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:block;");
+    var node = document.getElementById('divGridSalvar');
+    this.imageUrl;
+    var img;
+    var filename;
+    var newImage;
+
+
+    domtoimage.toPng(node, { bgcolor: '#000' })
+
+      .then(function(dataUrl) {
+        console.log('a');
+        this.imageUrl = dataUrl;
+        console.log('b');
+        console.log(this.imageUrl)
+        console.log('c');
+        document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:flex;");
+        document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:block;");
+
+      }.bind(this))
+      .catch(function(error) {
+        console.log('Aconteceu um erro')
+        // Error Handling
+
+      });
+
+
+
+
+    
   }
   fechaPreview(){
     document.getElementsByClassName('modalPreview')[0].setAttribute("style", "display:none;");
     document.getElementsByClassName('modalConteudoPreview')[0].setAttribute("style", "display:none;");
 
   }
+  chamaPrinter(){
+    document.getElementsByClassName('modalPrinter')[0].setAttribute("style", "display:flex;");
+    document.getElementsByClassName('modalConteudoPrinter')[0].setAttribute("style", "display:block;");
+  }
+
+  fechaPrinter(){
+    document.getElementsByClassName('modalPrinter')[0].setAttribute("style", "display:none;");
+    document.getElementsByClassName('modalConteudoPrinter')[0].setAttribute("style", "display:none;");
+
+  }
+  
 
   testemudanca(evento){
     this.divGrid = document.getElementById("divGrid");
@@ -341,6 +402,7 @@ export class ExamComponent implements OnInit {
 
         img = new Image();
         img.src = dataUrl;
+        console.log(dataUrl);
         newImage = img.src;
 
         img.onload = function(){

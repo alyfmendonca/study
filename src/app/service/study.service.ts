@@ -37,4 +37,16 @@ export class StudyService {
     return this.http.post<any>(`${AppConstants.baseURLImage}pdf/uploadImage`, file, {headers});
   }
 
+  getImages(id){
+    //let token = localStorage.getItem('token');
+    // var fileReq: PrintReq = {
+    //   printer_id: 2,
+    //   file: file,
+    // }
+    let headers = new HttpHeaders({
+      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.get<String[]>(AppConstants.baseURL + `image/getImagesFromSerie?serie_id=${id}`, {headers});
+  }
 }

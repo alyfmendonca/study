@@ -33,7 +33,7 @@
       <div class="formSelectionThree">
           <h3>Seleção das séries</h3>
           <div class="gridSelecao">
-              <img (click)="selectSelectionImage($event.target);" *ngFor="let number of [0,1,2,3,4,4,4,4,4,4,4,4,4,4,4,4,4]" src="assets\img\corpo.png" >
+              <img (click)="selectSelectionImage($event.target);" *ngFor="let number of ImagesSerie" src="{{number}}" >
           </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
       <div class="div-right">
         <button mat-raised-button [color]="color" class="greyButton" (click)="chamaPreview()" >PREVIEW</button>
         <button mat-raised-button [color]="color" class="orangeButton" (click)="chamarImpressao()">SALVAR</button>
-        <button mat-raised-button (click)="chamaPrint()" [color]="color">IMPRIMIR</button>
+        <button mat-raised-button (click)="chamaPrinter()" [color]="color">IMPRIMIR</button>
       </div>
     </div>
 
@@ -339,8 +339,8 @@
   <div class="imageSlider">
     <i (click)="onClickBack();"  class="fas fa-chevron-left"></i>
     <mat-tab-group>
-      <mat-tab label="First"> <img src="assets\img\preview.png" alt=""></mat-tab>
-      <mat-tab label="Second"> <img src="assets\img\preview.png" alt=""> </mat-tab>
+      <mat-tab label="First"> <img src="{{imageUrl}}" alt=""></mat-tab>
+      <mat-tab label="Second"> <img src="{{imageUrl}}" alt=""> </mat-tab>
     </mat-tab-group>
     <i (click)="onClickNext();" class="fas fa-chevron-right"></i>
   </div>
@@ -349,4 +349,46 @@
     <p>Página 1 - 10</p>
     <i (click)="onClickNext();" class="fas fa-chevron-right"></i>
   </div>
+</div>
+
+<!-- MODAL PRINTER -->
+<div (click)="fechaPrinter()" class="modalPrinter">
+  
+  
+</div>
+
+<div class="modalConteudoPrinter">
+  <i (click)="fechaPrinter()" class="fas fa-times"></i>
+  <div class="contentTitle">
+    <h3 class="MainTitle">Escolha a impressora</h3>
+  </div>
+  <table mat-table [dataSource]="printerSource" class="tabelaPrinter mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="NOME">
+      <th mat-header-cell *matHeaderCellDef> NOME </th>
+      <td mat-cell *matCellDef="let element"> {{element.printer_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="IP">
+        <th mat-header-cell *matHeaderCellDef> IP </th>
+        <td mat-cell *matCellDef="let element"> {{element.printer_ip}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TRAY">
+        <th mat-header-cell *matHeaderCellDef> TRAY </th>
+        <td mat-cell *matCellDef="let element"> {{element.printer_tray}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="PAPER">
+        <th mat-header-cell *matHeaderCellDef> PAPEL </th>
+        <td mat-cell *matCellDef="let element"> {{element.printer_paper_type}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="printerColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: printerColumns;" (click)="selection.toggle(row)">
+  </table>
 </div>
