@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConstants} from "../AppConstants";
-import {Study} from "../model/study";
+import {Study, StudyFilter} from '../model/study';
 import { PrintReq } from '../model/pintResponse';
 import {AuthService} from "./auth.service";
 
@@ -14,14 +14,27 @@ export class StudyService {
 
   constructor(private http : HttpClient, private authService : AuthService) { }
 
-  getStudies() : Observable<Study[]> {
+  getStudies() : Observable<StudyFilter> {
+
+    const body = {
+      "institution_site_id": 4,
+      "study_date": null,
+      "accession_number": null,
+      "patient_id": null,
+      "physician_id": null,
+      "study_description": null,
+      "modality_id": null,
+      "equipment_id": null,
+      "patient_name": "m",
+      "page_size": 10,
+      "page_number": 1
+    };
 
     const options = {
       headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
-      params: new HttpParams().set('id', '4')
     };
 
-    return this.http.get<Study[]>(AppConstants.baseURL + "institutionSite/getStudiesById", options);
+    return this.http.post<StudyFilter>(AppConstants.baseURL + "study/filterExamsWithCount", body, options);
   }
 
   sendPrint(file: PrintReq){

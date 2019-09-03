@@ -31,7 +31,7 @@ export class ExamListScreenComponent implements OnInit {
     this.studyService.getStudies()
       .subscribe( data => {
         console.log(data);
-        this.dataSource = data;
+        this.dataSource = data.exams;
       })
   }
 

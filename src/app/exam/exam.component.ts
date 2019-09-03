@@ -273,7 +273,7 @@ export class ExamComponent implements OnInit {
     }
 
   onClickNext(id){
-    let i = 0
+    let i = 0;
     let continua = true;
     while(continua){
       let tab = document.getElementById(`mat-tab-label-${i}-1`);
