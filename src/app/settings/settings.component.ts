@@ -74,11 +74,12 @@ export class SettingsComponent implements OnInit {
     'Brush teeth',
     
   ];
+  fullDicomTags: singleDicomTag[] = [];
   dicomTags: singleDicomTag[] = [];
-  dicomTags2: singleDicomTag[] = [];
-  dicomTags3: singleDicomTag[] = [];
-  dicomTags4: singleDicomTag[] = [];
-  dicomTags5: singleDicomTag[] = [];
+  dicomTagsTopLeft: singleDicomTag[] = [];
+  dicomTagsTopRight: singleDicomTag[] = [];
+  dicomTagsBottomLeft: singleDicomTag[] = [];
+  dicomTagsBottomRight: singleDicomTag[] = [];
 
   arrayModalidade: getModalidades;
 
@@ -123,15 +124,28 @@ export class SettingsComponent implements OnInit {
           Swal.fire('Erro ao buscar impessoras!', 'erro: ' + error, 'error')
         });
 
-    this.settingsService.getModalidades().subscribe(response => {
-      console.log(response);
-      this.arrayModalidade = response;
-      response.dicomTags.map(item =>{
-        this.dicomTags.push(item);
-        console.log(this.dicomTags);
-      })
-      
-    })
+        this.settingsService.getModalidades().subscribe(response => {
+          console.log(response);
+          this.arrayModalidade = response;
+          response.modalities.map(mod =>{
+            response.dicomTags.map(item =>{
+              let aux = {
+                n_dicom_tags_id: item.n_dicom_tags_id,
+                tag: item.tag,
+                display_text: item.display_text,
+                fk_modality: mod.modality_id,
+              }
+              this.fullDicomTags.push(aux);
+              if(mod.modality_id == '1'){
+                this.dicomTags.push(aux);
+              }
+              console.log(this.fullDicomTags);
+              console.log(this.dicomTags);
+    
+            })
+          })
+          
+        })
   }
 
   handlePrinterData(data: PrinterList){
@@ -170,7 +184,6 @@ export class SettingsComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
-    console.log(this.dicomTags2);
   }
 
   aetitleAdd(){
