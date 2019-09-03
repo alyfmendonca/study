@@ -15,7 +15,7 @@ export class PrinterService {
   getPrinters() : Observable<PrinterList> {
     const options = {
       headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
-      params: new HttpParams().set('institution_site_id', '4').set('page_size', '3').set('page_number', '1')
+      params: new HttpParams().set('institution_site_id', '4').set('page_size', '30').set('page_number', '1')
     };
 
     return this.http.get<PrinterList>(AppConstants.baseURL + "printer/getPrinters", options);

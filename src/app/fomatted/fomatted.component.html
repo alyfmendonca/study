@@ -109,49 +109,49 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row; let i = index;"> {{i + 1}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row; let i = index;"> {{i + 1}} </td>
       </ng-container>
   
       <!-- Progress Column -->
       <ng-container matColumnDef="acession">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ACESSION_NUMBER </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.accession_number}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.accession_number}} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="paciente">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> PACIENTE </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.pat_full_name}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.pat_full_name}} </td>
       </ng-container>
   
       <!-- Color Column -->
       <ng-container matColumnDef="desc">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIÇÃO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.description}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.description}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="modalidade">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> MODALIDADE </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.mod_full_name}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.mod_full_name}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DATA DE CRIAÇÃO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.study_date | date: 'dd/MM/yyyy'}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.study_date | date: 'dd/MM/yyyy'}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="impresso">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> IMPRESSO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.c_boolean_print > 0 ? "Sim" : "Não"}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.c_boolean_print > 0 ? "Sim" : "Não"}} </td>
       </ng-container>
 
       <!-- Color Column -->
       <ng-container matColumnDef="salvo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> SALVO </th>
-        <td (click)="redirPrint(1);" mat-cell *matCellDef="let row"> {{row.c_booblean_saved > 0 ? "Sim" : "Não"}} </td>
+        <td (click)="redirPrint(row);" mat-cell *matCellDef="let row"> {{row.c_booblean_saved > 0 ? "Sim" : "Não"}} </td>
       </ng-container>
   
 

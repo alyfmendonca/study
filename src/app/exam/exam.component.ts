@@ -9,6 +9,8 @@ import { PrintReq } from '../model/pintResponse';
 import {PrinterService} from '../service/printer.service';
 import Swal from "sweetalert2";
 import {Printer, PrinterList, PrinterObj} from '../model/printer';
+import {ActivatedRoute} from '@angular/router';
+import {Study} from '../model/study';
 
 export interface Tile {
   color: string;
@@ -51,7 +53,7 @@ export class ExamComponent implements OnInit {
     {text: 'Nas selecionadas', value: 1},
     {text: 'Na página atual', value: 2},
     {text: 'Em toda a série', value: 3}
-  ]
+  ];
 
   editors: any[] = [
     {text: 'Régua de medidas', value: 1},
@@ -59,13 +61,13 @@ export class ExamComponent implements OnInit {
     {text: 'Colimação', value: 3},
     {text: 'Mantém matriz', value: 4},
     {text: 'Overlay', value: 5}
-  ]
+  ];
 
   midiaOptionList: any[] = [
     {text: 'Lorem Ipsum', value: 1},
     {text: 'Lorem Ipsum Lorem', value: 2},
     {text: 'Lorem Lorem', value: 3},
-  ]
+  ];
 
   layoutOptionList: any[] = [
     {text: 'Customizado', value: 0},
@@ -75,7 +77,7 @@ export class ExamComponent implements OnInit {
     {text: 'Layoute 4', value: 4},
     {text: 'Layoute 5', value: 5},
     {text: 'Layoute 6', value: 6},
-  ]
+  ];
 
   color = "primary";
 
@@ -91,7 +93,7 @@ export class ExamComponent implements OnInit {
   selectedScope:number = 1;
   selectedEditor:number = 1;
 
-  ImagesSerie: String[];
+  ImagesSerie: String[] = [];
   flagCustom: boolean = true;
 
   divGrid = document.getElementById("divGridSalvar");
@@ -107,25 +109,37 @@ export class ExamComponent implements OnInit {
 
   selectedSource:string = "";
 
-  printerColumns: string[] = ['NOME', 'IP', 'TRAY', 'PAPER']
+  printerColumns: string[] = ['NOME', 'IP', 'TRAY', 'PAPER'];
   printerSource = new MatTableDataSource<Printer>();
 
-  constructor(public dialog: MatDialog, public studyService: StudyService, public printerService:PrinterService) { }
+  constructor(public dialog: MatDialog,
+              public studyService: StudyService,
+              public printerService:PrinterService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    let accessionNumber = this.route.snapshot.paramMap.get("id")
+    this.studyService.getStudySeries(accessionNumber)
+      .subscribe(data => this.handleSeries(data));
     this.printerService.getPrinters().subscribe(data => {
       this.handlePrinterData(data)
     },
     error => {
       Swal.fire('Erro ao buscar impessoras!', 'erro: ' + error, 'error')
     });
-
-    this.studyService.getImages(20).subscribe(response => {
-      console.log(response['images']);
-      this.ImagesSerie = response['images'];
-    });
   }
+
+  handleSeries(data: Study[]){
+    data.forEach(value => {
+      this.studyService.getImages(value.serie_id).subscribe(response => {
+        console.log(response['images']);
+        response['images'].forEach(element => {
+          this.ImagesSerie.push(element);
+        });
+      });
+    })
+  }
+
   handlePrinterData(data: PrinterList){
     this.printerSource.data = data.printers
   }
@@ -443,6 +457,11 @@ export class ExamComponent implements OnInit {
       });
   }
 
+  printAction(elemento){
+    
+    this.fechaPrinter()
+
+  }
 
   fileReq: PrintReq = {
     file: "",

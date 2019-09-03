@@ -36,11 +36,7 @@ export class SettingsComponent implements OnInit {
   ipAdd:string = "";
   portaAdd:string = "";
 
-  mockedAeTitles: any[] = [
-    {aeTitle: 'trest', ip: '125.190.165.255', porta: 8088},
-    {aeTitle: 'yuoiyt', ip: '39.123.123.123', porta: 5000},
-    {aeTitle: 'quitruo', ip: '172.198.165.37', porta: 7000},
-  ];
+  mockedAeTitles: any[] = [];
 
   printerAdd: string = "";
   printerIpAdd: string = "";
@@ -114,8 +110,39 @@ export class SettingsComponent implements OnInit {
 
   mudaClasse(elem){
     console.log(elem);
+
+    this.dicomTags = [];
+    this.dicomTagsBottomLeft = [];
+    this.dicomTagsBottomRight = [];
+    this.dicomTagsTopLeft =[];
+    this.dicomTagsTopRight = [];
+
+    this.fullDicomTags.map(item => {
+      if(item.fk_modality == elem){
+        switch(item.positioning){
+          case "TOP LEFT":
+            this.dicomTagsTopLeft.push(item);
+            break;
+          case "TOP RIGHT":
+            this.dicomTagsTopRight.push(item);
+            break;
+          case "BOTTOM RIGHT":
+            this.dicomTagsBottomRight.push(item);
+            break;
+          case "BOTTOM LEFT":
+            this.dicomTagsBottomLeft.push(item);
+            break;
+          default:
+            this.dicomTags.push(item);
+            break;
+        }
+      }
+    })
+
+
   }
 
+  auxiliarPosition: any [] = [];
   ngOnInit() {
     this.printerService.getPrinters().subscribe(data => {
           this.handlePrinterData(data)
@@ -124,20 +151,49 @@ export class SettingsComponent implements OnInit {
           Swal.fire('Erro ao buscar impessoras!', 'erro: ' + error, 'error')
         });
 
+        this.settingsService.getPositions().subscribe(retorno => {
+          
+          this.auxiliarPosition = retorno;
+          console.log(this.auxiliarPosition);
+        })
         this.settingsService.getModalidades().subscribe(response => {
           console.log(response);
           this.arrayModalidade = response;
           response.modalities.map(mod =>{
             response.dicomTags.map(item =>{
+              
               let aux = {
                 n_dicom_tags_id: item.n_dicom_tags_id,
                 tag: item.tag,
                 display_text: item.display_text,
                 fk_modality: mod.modality_id,
+                positioning: ''
               }
+              this.auxiliarPosition.map(position => {
+                if(position.dicom_tag_id_fk == item.n_dicom_tags_id && position.fk_modality == mod.modality_id){
+                  aux.positioning = position.positioning;
+                }
+              })
               this.fullDicomTags.push(aux);
               if(mod.modality_id == '1'){
-                this.dicomTags.push(aux);
+                switch(aux.positioning){
+                  case "TOP LEFT":
+                    this.dicomTagsTopLeft.push(aux);
+                    break;
+                  case "TOP RIGHT":
+                    this.dicomTagsTopRight.push(aux);
+                    break;
+                  case "BOTTOM RIGHT":
+                    this.dicomTagsBottomRight.push(aux);
+                    break;
+                  case "BOTTOM LEFT":
+                    this.dicomTagsBottomLeft.push(aux);
+                    break;
+                  default:
+                    this.dicomTags.push(aux);
+                    break;
+                }
+                
               }
               console.log(this.fullDicomTags);
               console.log(this.dicomTags);
@@ -184,6 +240,7 @@ export class SettingsComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    console.log(event);
   }
 
   aetitleAdd(){

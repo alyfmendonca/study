@@ -5,7 +5,7 @@
   transform: translate(-50%);
 }
 
-table {
+table.tablePrinterExams {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -31,11 +31,11 @@ mat-paginator{
   font-weight: 400;
 }
 
-.mat-row:nth-child(even){
+.mat-row-custom:nth-child(even){
   background-color: #f2f2f2;
 }
 
-.mat-row:nth-child(odd) {
+.mat-row-custom:nth-child(odd) {
   background-color: white;
 }
 
@@ -146,3 +146,62 @@ mat-checkbox{
   font-size: 12px;
 }
 
+.fa-times{
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  color: #004186;
+  cursor: pointer;
+}
+
+table.tabelaPrinter{
+  box-shadow: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+table.tabelaPrinter th{
+  box-shadow: none;
+  cursor: default;
+  width: 100%;
+}
+
+.contentTitle{
+  width: 100%;
+  text-align: center;
+}
+
+.contentTitle .MainTitle{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modalPrinter{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.69);
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modalConteudoPrinter{
+  background: #fff;
+  border-radius: 3px;
+  width: 30%;
+  height: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: flex;
+  padding: 30px 50px;
+  display: none;
+  position: absolute;
+  z-index: 999999;
+  margin-left: 28%;
+  top: 10px;
+  margin-top: 3%;
+}

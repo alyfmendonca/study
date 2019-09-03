@@ -59,7 +59,16 @@ export class FomattedComponent implements OnInit {
   }
 
   redirPrint(elemento){
-    this.router.navigateByUrl("home/exam/1");
+    console.log(elemento);
+    this.studyService.getFormattedImage(elemento.patient_fk)
+      .subscribe( data => {
+        data.forEach( value => {
+          console.log(value);
+          if(value.includes('pdf')){
+            window.open(value);
+          }
+        })
+      })
   }
 
 }

@@ -257,7 +257,6 @@ mat-card .formOprtionsEditor{
   top: 0;
   justify-content: center;
   align-items: center;
-  display: flex;
   display: none;
 }
 .modalConteudo {
@@ -266,7 +265,6 @@ mat-card .formOprtionsEditor{
   width: 90%;
   height: 85%;
   margin: auto;
-  display: flex;
   padding: 30px 50px;
   display: none;
   position: absolute;
@@ -308,8 +306,15 @@ mat-card .formOprtionsEditor{
 }
 table.tabelaPrinter{
   box-shadow: none;
+  cursor: pointer;
   width: 100%;
 }
+table.tabelaPrinter th{
+  box-shadow: none;
+  cursor: default;
+  width: 100%;
+}
+
 h3.MainTitle{
   font-family: Roboto;
   font-style: normal;

@@ -49,7 +49,7 @@ export class NonformattedComponent implements OnInit {
   }
 
   redirPrint(elemento){
-    this.router.navigateByUrl("home/exam/1");
+    this.router.navigate(["home/exam", elemento.accession_number]);
   }
 
   constructor(private router: Router, private studyService: StudyService, private cdr: ChangeDetectorRef) {

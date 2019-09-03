@@ -4,6 +4,8 @@ export interface Study {
   mod_full_name: string;
   study_date: string;
   institution_site_id: string;
+  patient_fk: string;
+  serie_id: string;
   inst_site_name: string;
   pat_full_name: string;
   c_boolean_print: string;

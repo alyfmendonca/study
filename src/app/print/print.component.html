@@ -104,7 +104,7 @@
       </mat-accordion>
       
       <div>
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="tablePrinterExams mat-elevation-z8">
       
           <!-- ID Column -->
           <ng-container matColumnDef="id">
@@ -161,11 +161,61 @@
             <td mat-cell *matCellDef="let row"> {{row.inst_site_name}} </td>
         </ng-container>
          
+        <ng-container matColumnDef="print">
+          <th mat-header-cell [ngClass]="'customWidthClass'" *matHeaderCellDef></th>
+          <td (click)="openPrintPopup(1);" mat-cell [ngClass]="'customWidthClass'" *matCellDef="let element">
+            <button mat-icon-button aria-label="Imprimir">
+              <mat-icon>print</mat-icon>
+            </button>
+          </td>
+        </ng-container>
     
           <tr mat-header-row *matHeaderRowDef="displayedColumns" class="header-table"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row class="mat-row-custom" *matRowDef="let row; columns: displayedColumns;"></tr>
     
         </table>
       
         <mat-paginator [pageSizeOptions]="[10, 30, 50]"></mat-paginator>
+      </div>
+
+      <!-- MODAL PRINTER -->
+      <div (click)="fechaPrinter()" class="modalPrinter">
+
+
+      </div>
+
+      <div class="modalConteudoPrinter">
+        <i (click)="fechaPrinter()" class="fas fa-times"></i>
+        <div class="contentTitle">
+          <h3 class="MainTitle">Escolha a impressora</h3>
+        </div>
+        <table mat-table [dataSource]="printerSource" class="tabelaPrinter mat-elevation-z8">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="NOME">
+            <th mat-header-cell *matHeaderCellDef> NOME </th>
+            <td (click)="printAction(1);" mat-cell *matCellDef="let element"> {{element.printer_name}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="IP">
+              <th mat-header-cell *matHeaderCellDef> IP </th>
+              <td (click)="printAction(1);" mat-cell *matCellDef="let element"> {{element.printer_ip}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="TRAY">
+              <th mat-header-cell *matHeaderCellDef> TRAY </th>
+              <td (click)="printAction(1);" mat-cell *matCellDef="let element"> {{element.printer_tray}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="PAPER">
+              <th mat-header-cell *matHeaderCellDef> PAPEL </th>
+              <td (click)="printAction(1);" mat-cell *matCellDef="let element"> {{element.printer_paper_type}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="printerColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: printerColumns;" (click)="selection.toggle(row)">
+        </table>
       </div>

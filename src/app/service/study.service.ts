@@ -37,6 +37,24 @@ export class StudyService {
     return this.http.post<StudyFilter>(AppConstants.baseURL + "study/filterExamsWithCount", body, options);
   }
 
+  getFormattedImage(id: string){
+    const options = {
+      headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
+      params: new HttpParams().set('patient_id', id)
+    };
+    return this.http.get<string[]>(AppConstants.baseURL + "formattedImage/getFormattedImagesFromStudy", options);
+  }
+
+  getStudySeries(accessionNumber: string) : Observable<Study[]>{
+    const body = {
+      "accession_number": accessionNumber
+    };
+    const options = {
+      headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
+    };
+    return this.http.post<Study[]>(AppConstants.baseURL + "study/getStudySeries", body, options)
+  }
+
   sendPrint(file: PrintReq){
     //let token = localStorage.getItem('token');
     // var fileReq: PrintReq = {
