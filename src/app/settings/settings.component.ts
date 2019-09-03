@@ -5,6 +5,9 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import {PrinterService} from '../service/printer.service';
 import Swal from "sweetalert2";
 import {Printer, PrinterList, PrinterObj} from '../model/printer';
+import { SettingsService } from '../service/settings.service';
+
+import { getModalidades, singleDicomTag } from '../model/getModalidades';
 
 @Component({
   selector: 'app-settings',
@@ -103,8 +106,15 @@ export class SettingsComponent implements OnInit {
     'Brush teeth',
     
   ];
+  dicomTags: singleDicomTag[] = [];
+  dicomTags2: singleDicomTag[] = [];
+  dicomTags3: singleDicomTag[] = [];
+  dicomTags4: singleDicomTag[] = [];
+  dicomTags5: singleDicomTag[] = [];
 
-  constructor(private printerService: PrinterService) { }
+  arrayModalidade: getModalidades;
+
+  constructor(private printerService: PrinterService, private settingsService: SettingsService) { }
 
   displayedColumns: string[] = ['SELECT', 'AETITLE', 'IP', 'PORTA'];
   dataSource = new MatTableDataSource<any>(this.mockedAeTitles);
@@ -144,6 +154,16 @@ export class SettingsComponent implements OnInit {
         error => {
           Swal.fire('Erro ao buscar impessoras!', 'erro: ' + error, 'error')
         });
+
+    this.settingsService.getModalidades().subscribe(response => {
+      console.log(response);
+      this.arrayModalidade = response;
+      response.dicomTags.map(item =>{
+        this.dicomTags.push(item);
+        console.log(this.dicomTags);
+      })
+      
+    })
   }
 
   handlePrinterData(data: PrinterList){
@@ -182,6 +202,7 @@ export class SettingsComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    console.log(this.dicomTags2);
   }
 
   aetitleAdd(){
