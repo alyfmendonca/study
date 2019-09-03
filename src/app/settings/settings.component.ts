@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatTableDataSource, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import {PrinterService} from '../service/printer.service';
@@ -8,6 +8,17 @@ import {Printer, PrinterList, PrinterObj} from '../model/printer';
 import { SettingsService } from '../service/settings.service';
 
 import { getModalidades, singleDicomTag } from '../model/getModalidades';
+import { PopUpDialogText } from './dialog-text-pop/dialog-text-pop.component';
+
+export interface DialogDataText {
+  linhaOne: string;
+  linhaTwo: string;
+  linhaThree: string;
+}
+
+export interface DialogDataImg {
+  src: string;
+}
 
 @Component({
   selector: 'app-settings',
@@ -35,49 +46,6 @@ export class SettingsComponent implements OnInit {
   printerIpAdd: string = "";
   printerTrayAdd: string = "";
   printerPaperAdd: string = "";
-
-  // mockedDicomTags: any[] = 
-  // [
-  //   {
-  //     TAG: 'PATIENTSNAME'
-  //   },
-  //   {
-  //     TAG: 'PATIENTID',
-  //   },
-  //   {
-  //     TAG: 'PATIENTSBIRTHDATE', 
-  //   },
-  //   {
-  //     TAG: 'PATIENTSSEX', 
-  //   },
-  //   {
-  //     TAG: 'OTHERPATIENTIDS',
-  //   },
-  //   {
-  //     TAG: 'PATIENTAGE', 
-  //   },
-  //   {
-  //     TAG: 'PATIENTSSIZE', 
-  //   },
-  //   {
-  //     TAG: 'PATIENTSWEIGHT', 
-  //   },
-  //   {
-  //     TAG: 'ACESSIONUMBER',  
-  //   },
-  //   {
-  //     TAG: 'MODALITY',  
-  //   },
-  //   {
-  //     TAG: 'MANUFACTURER',  
-  //   },
-  //   {
-  //     TAG: 'INSTITUTIONNAME',   
-  //   },
-  //   {
-  //     TAG: 'STATIONNAME' 
-  //   }
-  // ];
 
   mockedModalidades: any[] = 
   [
@@ -114,7 +82,7 @@ export class SettingsComponent implements OnInit {
 
   arrayModalidade: getModalidades;
 
-  constructor(private printerService: PrinterService, private settingsService: SettingsService) { }
+  constructor(private printerService: PrinterService, private settingsService: SettingsService, private dialog: MatDialog) { }
 
   displayedColumns: string[] = ['SELECT', 'AETITLE', 'IP', 'PORTA'];
   dataSource = new MatTableDataSource<any>(this.mockedAeTitles);
@@ -229,6 +197,25 @@ export class SettingsComponent implements OnInit {
 
   teste(){
     console.log(this.selection);
+  }
+
+  data: {
+    linhaOne : '',
+    linhaTwo: '',
+    linhaThree: ''
+  }
+
+  openDialog(id): void {
+    const dialogRef = this.dialog.open(PopUpDialogText, {
+      width: '250px',
+      data: {linhaOne: this.data.linhaOne, linhaTwo: this.data.linhaTwo, linhaThree: this.data.linhaThree}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Salvo');
+      this.data = result;
+    });
+
   }
 
 }

@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+        <p>Linha 1:</p>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.linhaOne">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-content>
+          <p>Linha 2:</p>
+          <mat-form-field>
+              <input matInput [(ngModel)]="data.linhaTwo">
+          </mat-form-field>
+      </div>
+      <div mat-dialog-content>
+          <p>Linha 3:</p>
+          <mat-form-field>
+              <input matInput [(ngModel)]="data.linhaThree">
+          </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+      </div>

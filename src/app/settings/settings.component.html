@@ -190,67 +190,38 @@
             </div>
             
             <div class="flexLine">
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
+                    <div class="cabecalhoItem" *ngFor="let id of [1, 2, 3]">
+                            <div class="container-card-cabec" id="cabecalhoBtns">
+                                <div class="icon-card-cabec">
+                                    <img style="cursor: pointer" src="assets\icons\Ativo 28.png" >
+                                </div>
+                                <button (click)="openDialog(id)" class="ligthBlueButton">Imagem</button>
+                                <button class="tradicionalButton">Texto</button>
+                            </div>
                     </div>
-                    
-                </div>
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
-                    </div>
-                </div>
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
-                    </div>
-                </div> 
             </div>
+
             <div class="previewCabRod" id="cabecalhoPreview"> 
 
             </div>
 
-            <div class="label-blocos">
+            <div class="label-blocos"> 
                 <h3>Rodapé</h3>
             </div>
             <div class="flexLine">
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
+                    <div class="cabecalhoItem" *ngFor="let id of [4, 5, 6]">
+                            <div class="container-card-cabec" id="cabecalhoBtns">
+                                <div class="icon-card-cabec">
+                                    <img style="cursor: pointer" src="assets\icons\Ativo 28.png" >
+                                </div>
+                                <button (click)="openDialog(id)" class="ligthBlueButton">Imagem</button>
+                                <button class="tradicionalButton">Texto</button>
+                            </div>
                     </div>
-                    
-                </div>
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
-                    </div>
-                </div>
-                <div class="cabecalhoItem">
-                    <div id="cabecalhoBtns">
-                        <button class="ligthBlueButton">Imagem</button>
-                        <br>
-                        <button class="tradicionalButton">Texto</button>
-                    </div>
-                </div> 
             </div>
-
             <div class="previewCabRod" id="rodapePreview"> 
 
             </div>
         </mat-card>
-    
     </div>
-    
-    
 </div>

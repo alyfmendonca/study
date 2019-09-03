@@ -34,14 +34,16 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FomattedComponent } from './fomatted/fomatted.component';
 import { NonformattedComponent } from './nonformatted/nonformatted.component';
 import { PrintComponent } from './print/print.component';
+import { PopUpDialogText } from './settings/dialog-text-pop/dialog-text-pop.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     routingComponents,
     FomattedComponent,
     NonformattedComponent,
     PrintComponent,
+    PopUpDialogText
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { PrintComponent } from './print/print.component';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
+    MatInputModule, 
     MatButtonModule,
     MatSlideToggleModule,
     MatSidenavModule,
@@ -74,6 +76,7 @@ import { PrintComponent } from './print/print.component';
   ],
   entryComponents: [
     PopupEditComponent,
+    PopUpDialogText
   ],
   providers: [AuthService, StudyService],
   bootstrap: [AppComponent]

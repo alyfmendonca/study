@@ -246,7 +246,7 @@ table.mat-elevation-z8.aetitleTable.mat-table th{
     border: 1px solid #bdbdbd;
     border-radius: 3px;
     padding: 10px;
-    overflow: scroll;
+    overflow: scroll; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,4 +255,33 @@ table.mat-elevation-z8.aetitleTable.mat-table th{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.container-card-cabec{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.icon-card-cabec{
+    width: 20px;
+    align-self: flex-end;
+}
+
+.container-card-cabec .icon-card-cabec img{
+    width: 100%;
+    height: auto;
+    margin-left: 50px;
+}
+
+.previewCabRod{
+    border: 1px solid black;
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.container-card-cabec .tradicionalButton{
+    margin-top: 5px;
 }
