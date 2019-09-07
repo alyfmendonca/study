@@ -20,8 +20,9 @@ export class SettingsService {
     //   printer_id: 2,
     //   file: file,
     // }
+    let token = localStorage.getItem('token');
     let headers = new HttpHeaders({
-      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
     return this.http.get<getModalidades>(`${AppConstants.baseURL}configuration/getConfigurationFromInstitutionSiteById`, {headers});
@@ -33,8 +34,9 @@ export class SettingsService {
     //   printer_id: 2,
     //   file: file,
     // }
+    let token = localStorage.getItem('token');
     let headers = new HttpHeaders({
-      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
     return this.http.get<any>(`${AppConstants.baseURL}tagPositioning/getAll?current_index=0&next_index=500`, {headers});

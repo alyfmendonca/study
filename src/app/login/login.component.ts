@@ -21,11 +21,27 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private authService : AuthService) { }
 
+  txtLogin:string;
+  
   ngOnInit() {
+    localStorage.removeItem('token');
     this.token = this.authService.getToken();
     if(this.token != null){
       this.handleLogin(this.token);
+      var login = localStorage.getItem('login');
+      if(login){
+        this.txtLogin = login
+      }
     }
+    
+  }
+
+  
+  remember: boolean;
+
+  changeRemember(remember){
+    console.log(remember);
+    //this.remember = remember;
   }
 
   onClick(){
@@ -43,6 +59,10 @@ export class LoginComponent implements OnInit {
     this.authService.postAuth(this.login, this.password)
       .subscribe(
         data => {
+          localStorage.setItem('token', data.token);
+          if(this.checked){
+            localStorage.setItem('login', this.login);
+          }
           this.handleLogin(data)
         },
         error => {

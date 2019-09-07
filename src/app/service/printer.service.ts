@@ -13,8 +13,9 @@ export class PrinterService {
   constructor(private http : HttpClient) { }
 
   getPrinters() : Observable<PrinterList> {
+    let token = localStorage.getItem('token');
     const options = {
-      headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4'),
+      headers: new HttpHeaders().set('Authorization', 'Bearer '+token+''),
       params: new HttpParams().set('institution_site_id', '4').set('page_size', '30').set('page_number', '1')
     };
 
@@ -38,8 +39,9 @@ export class PrinterService {
       printer_is_deleted:"false",
       printer_paper_type:"1"
     };
+    let token = localStorage.getItem('token');
     const options = {
-      headers: new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIyMDE5LTA3LTA5VDE5OjA2OjAyLjY2NVoiLCJpYXQiOjE1NjI3MDk5MDZ9.pC0JLhHlJ81GOCkZKltkStbgleW-AZaW1GIIEIAvBs4')
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
       .set('Content-Type', 'application/x-www-form-urlencoded'),
     };
 
