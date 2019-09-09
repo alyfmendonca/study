@@ -149,7 +149,7 @@
         </mat-card>
     </mat-card>
     <div class="rightModalidades">
-        <mat-card cdkDropList #todoList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="dicomTags" [cdkDropListConnectedTo]="[doneList, doneList2, doneList3, doneList4]" class="card-modalidades secondContent">
+        <mat-card cdkDropList #todoList="cdkDropList" (cdkDropListDropped)="drop($event,'inicial')" [cdkDropListData]="dicomTags" [cdkDropListConnectedTo]="[doneList, doneList2, doneList3, doneList4]" class="card-modalidades secondContent">
             <h3>DicomTAG</h3>
             <mat-card class="card-dicomtag"  *ngFor="let dicomtag of dicomTags" cdkDrag>
                 {{dicomtag.display_text}} 
@@ -160,23 +160,23 @@
                 <h3>Imagem</h3>
             </div>
             <div class="div-imagem-blocos">
-                <div cdkDropList #doneList="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="dicomTagsTopLeft" [cdkDropListConnectedTo]="[todoList, doneList2, doneList3, doneList4]" class="bloco">
+                <div cdkDropList #doneList="cdkDropList" (cdkDropListDropped)="drop($event, 'TOP LEFT')" [cdkDropListData]="dicomTagsTopLeft" [cdkDropListConnectedTo]="[todoList, doneList2, doneList3, doneList4]" class="bloco">
                         <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of dicomTagsTopLeft" cdkDrag>
                                 {{dicomtag.display_text}} <i class="fas fa-times-circle"></i>
                         </mat-card>
                 </div>
     
-                <div cdkDropList #doneList2="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="dicomTagsTopRight" [cdkDropListConnectedTo]="[todoList, doneList, doneList3, doneList4]" class="bloco">
+                <div cdkDropList #doneList2="cdkDropList" (cdkDropListDropped)="drop($event, 'TOP RIGHT')" [cdkDropListData]="dicomTagsTopRight" [cdkDropListConnectedTo]="[todoList, doneList, doneList3, doneList4]" class="bloco" >
                     <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of dicomTagsTopRight" cdkDrag>
                             {{dicomtag.display_text}} <i class="fas fa-times-circle"></i>
                     </mat-card>
                 </div>
-                <div cdkDropList #doneList3="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="dicomTagsBottomLeft" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList4]" class="bloco">
-                    <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of dicomTagsBottomLeft" cdkDrag>
+                <div cdkDropList #doneList3="cdkDropList" (cdkDropListDropped)="drop($event, 'BOTTOM LEFT')" [cdkDropListData]="dicomTagsBottomLeft" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList4]" class="bloco">
+                    <mat-card class="card-dicomtagAdd" id="teee"  *ngFor="let dicomtag of dicomTagsBottomLeft" cdkDrag>
                             {{dicomtag.display_text}} <i class="fas fa-times-circle"></i>
                     </mat-card>
                 </div>
-                <div cdkDropList #doneList4="cdkDropList" (cdkDropListDropped)="drop($event)" [cdkDropListData]="dicomTagsBottomRight" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList3]" class="bloco">
+                <div cdkDropList #doneList4="cdkDropList" (cdkDropListDropped)="drop($event, 'BOTTOM RIGHT')" [cdkDropListData]="dicomTagsBottomRight" [cdkDropListConnectedTo]="[todoList, doneList, doneList2, doneList3]" class="bloco">
                     <mat-card class="card-dicomtagAdd"  *ngFor="let dicomtag of dicomTagsBottomRight" cdkDrag>
                             {{dicomtag.display_text}}  <i class="fas fa-times-circle"></i>
                     </mat-card>

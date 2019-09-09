@@ -55,7 +55,8 @@ export interface singleDicomTag {
     positioning?: string,
     fk_modality?: string,
     is_deleted?: string,
-    institution_fk?: string
+    institution_fk?: string,
+    last_update? : string,
 }
 
   

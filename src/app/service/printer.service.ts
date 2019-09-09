@@ -42,7 +42,7 @@ export class PrinterService {
     let token = localStorage.getItem('token');
     const options = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-      .set('Content-Type', 'application/x-www-form-urlencoded'),
+      .set('Content-Type', 'application/json'),
     };
 
     return this.http.post<PrinterObj>(AppConstants.baseURL + "printer/createPrinter", body, options);

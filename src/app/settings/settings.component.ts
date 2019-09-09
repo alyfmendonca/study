@@ -157,6 +157,7 @@ export class SettingsComponent implements OnInit {
           console.log(this.auxiliarPosition);
         })
         this.settingsService.getModalidades().subscribe(response => {
+          console.log('aquiii')
           console.log(response);
           this.arrayModalidade = response;
           response.modalities.map(mod =>{
@@ -167,11 +168,18 @@ export class SettingsComponent implements OnInit {
                 tag: item.tag,
                 display_text: item.display_text,
                 fk_modality: mod.modality_id,
-                positioning: ''
+                positioning: '',
+                tag_positioning_id: '',
+                dicom_tag_id_fk:'',
+                institution_fk: response.institutionSite[0].institution_site_id,
+                last_update: ''
               }
               this.auxiliarPosition.map(position => {
                 if(position.dicom_tag_id_fk == item.n_dicom_tags_id && position.fk_modality == mod.modality_id){
                   aux.positioning = position.positioning;
+                  aux.tag_positioning_id = position.tag_positioning_id;
+                  aux.dicom_tag_id_fk = position.dicom_tag_id_fk;
+                  aux.last_update = position.last_update;
                 }
               })
               this.fullDicomTags.push(aux);
@@ -231,16 +239,40 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<singleDicomTag[]>, posicao) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+
+      if(posicao == 'inicial'){
+          //deleta o item no caso de mover para a lista de dicomtags
+          this.settingsService.deletePositionin(event.container.data[event.currentIndex].tag_positioning_id).subscribe(response => {
+            console.log(response);
+          })
+      }else if(event.container.data[event.currentIndex].positioning == ''){
+        //cria uma nova posicao para o caso do item nao estar assocido a nenhum box anteriormente
+        
+        // console.log(event.container.data[event.currentIndex]);
+        
+        this.settingsService.createPositionin(event.container.data[event.currentIndex], posicao).subscribe(response => {
+          console.log(response);
+        })
+      }else{
+        //atualiza o card do caso de ele estar indo de um box para outro
+        // console.log('put')
+        this.settingsService.updatePositionin(event.container.data[event.currentIndex], posicao).subscribe(response => {
+          console.log(response);
+        })
+      }
     }
-    console.log(event);
+    
+    
+    
   }
 
   aetitleAdd(){
@@ -275,6 +307,7 @@ export class SettingsComponent implements OnInit {
     linhaThree: ''
   }
 
+  
   openDialog(id): void {
     const dialogRef = this.dialog.open(PopUpDialogText, {
       width: '250px',
