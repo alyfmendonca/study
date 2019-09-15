@@ -11,10 +11,19 @@ export class PopUpDialogText implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<PopUpDialogText>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogDataText) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogDataText) {
+      
+    }
+
+    dataSaida = {
+      linhaOne : this.data.linhaOne,
+      linhaTwo: this.data.linhaTwo, 
+      linhaThree: this.data.linhaThree,
+      clickedId: this.data.clickedId,
+    };
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close("cancel");
   }
 
   ngOnInit() {

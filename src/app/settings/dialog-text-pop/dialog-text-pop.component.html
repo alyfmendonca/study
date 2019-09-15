@@ -1,22 +1,22 @@
 <div mat-dialog-content>
         <p>Linha 1:</p>
         <mat-form-field>
-          <input matInput [(ngModel)]="data.linhaOne">
+          <input matInput name="linhau" [(ngModel)]="dataSaida.linhaOne">
         </mat-form-field>
       </div>
       <div mat-dialog-content>
           <p>Linha 2:</p>
           <mat-form-field>
-              <input matInput [(ngModel)]="data.linhaTwo">
+              <input matInput name="linhad" [(ngModel)]="dataSaida.linhaTwo">
           </mat-form-field>
       </div>
       <div mat-dialog-content>
           <p>Linha 3:</p>
           <mat-form-field>
-              <input matInput [(ngModel)]="data.linhaThree">
+              <input matInput name="linhat" [(ngModel)]="dataSaida.linhaThree">
           </mat-form-field>
       </div>
       <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+        <button mat-button [mat-dialog-close]="dataSaida" cdkFocusInitial>Ok</button>
       </div>

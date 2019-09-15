@@ -14,6 +14,7 @@ export interface DialogDataText {
   linhaOne: string;
   linhaTwo: string;
   linhaThree: string;
+  clickedId: string;
 }
 
 export interface DialogDataImg {
@@ -78,6 +79,9 @@ export class SettingsComponent implements OnInit {
   dicomTagsBottomRight: singleDicomTag[] = [];
 
   arrayModalidade: getModalidades;
+
+  listCabecalho: any[] = [];
+  listRodape: any[] = [];
 
   constructor(private printerService: PrinterService, private settingsService: SettingsService, private dialog: MatDialog) { }
 
@@ -301,22 +305,49 @@ export class SettingsComponent implements OnInit {
     console.log(this.selection);
   }
 
-  data: {
-    linhaOne : '',
-    linhaTwo: '',
-    linhaThree: ''
+  putList(result){
+
+
+    if(result.clickedId == '1' || result.clickedId == '2' || result.clickedId == '3'){
+
+      
+      if(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId) != -1){
+        this.listCabecalho.splice(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId), 1, result)
+      }else{
+        this.listCabecalho.push(result);
+      }
+
+    }else{
+
+      if(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId) != -1){
+        this.listRodape.splice(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId), 1, result)
+      }else{
+        this.listRodape.push(result);
+      }
+
+    }
   }
 
-  
-  openDialog(id): void {
+  openDialog(id: string): void {
+    let modalText = {
+      linhaOne : '',
+      linhaTwo: '',
+      linhaThree: ''
+    }
+
     const dialogRef = this.dialog.open(PopUpDialogText, {
-      width: '250px',
-      data: {linhaOne: this.data.linhaOne, linhaTwo: this.data.linhaTwo, linhaThree: this.data.linhaThree}
+      data: {
+        linhaOne: modalText.linhaOne, 
+        linhaTwo: modalText.linhaTwo, 
+        linhaThree: modalText.linhaThree, 
+        clickedId: id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Salvo');
-      this.data = result;
+      if(result != undefined && result.clickedId && result.clickedId != ''){
+          this.putList(result);
+      }
     });
 
   }
