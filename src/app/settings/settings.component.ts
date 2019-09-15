@@ -307,7 +307,6 @@ export class SettingsComponent implements OnInit {
 
   putList(result){
 
-
     if(result.clickedId == '1' || result.clickedId == '2' || result.clickedId == '3'){
 
       
