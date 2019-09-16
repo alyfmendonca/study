@@ -6,6 +6,7 @@ import {PrinterService} from '../service/printer.service';
 import Swal from "sweetalert2";
 import {Printer, PrinterList, PrinterObj} from '../model/printer';
 import { SettingsService } from '../service/settings.service';
+import {map} from 'rxjs/operators';
 
 import { getModalidades, singleDicomTag } from '../model/getModalidades';
 import { PopUpDialogText } from './dialog-text-pop/dialog-text-pop.component';
@@ -307,25 +308,10 @@ export class SettingsComponent implements OnInit {
 
   putList(result){
 
-    if(result.clickedId == '1' || result.clickedId == '2' || result.clickedId == '3'){
-
-      
-      if(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId) != -1){
-        this.listCabecalho.splice(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId), 1, result)
-      }else{
-        this.listCabecalho.push(result);
-      }
-
-    }else{
-
-      if(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId) != -1){
-        this.listRodape.splice(this.listCabecalho.findIndex(item => result.clickedId == item.clickeId), 1, result)
-      }else{
-        this.listRodape.push(result);
-      }
-
-    }
+   
   }
+
+  retorno: any = {};
 
   openDialog(id: string): void {
     let modalText = {
@@ -344,10 +330,45 @@ export class SettingsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result != undefined && result.clickedId && result.clickedId != ''){
-          this.putList(result);
+      this.retorno = result;
+        if(this.retorno != undefined && this.retorno.clickedId && this.retorno.clickedId != ''){
+          
+          console.log(this.retorno.clickeId);
+
+          setTimeout(() => {
+            console.log(this.retorno.clickeId);
+          }, 3000);
+
+          if(this.retorno.clickeId == '1' || this.retorno.clickeId == '2' || this.retorno.clickeId == '3'){
+            console.log('Cabeçalho');
+
+            console.log(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId));
+            
+            if(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
+              this.listCabecalho.splice(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            }else{
+              this.listCabecalho.push(result);
+            }
+      
+          }else{
+            console.log('Rodapé');
+            
+            
+            if(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
+              this.listRodape.splice(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            }else{
+              this.listRodape.push(result);
+            }
+      
+          }
+      
+          console.log(this.listCabecalho);
+          console.log(this.listRodape);
+
       }
-    });
+
+      
+   });
 
   }
 
