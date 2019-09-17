@@ -279,6 +279,7 @@ table.mat-elevation-z8.aetitleTable.mat-table th{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%
 }
 

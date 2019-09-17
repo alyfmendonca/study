@@ -35,6 +35,7 @@ import { FomattedComponent } from './fomatted/fomatted.component';
 import { NonformattedComponent } from './nonformatted/nonformatted.component';
 import { PrintComponent } from './print/print.component';
 import { PopUpDialogText } from './settings/dialog-text-pop/dialog-text-pop.component';
+import { DialogImagePopupComponent } from './settings/dialog-image-popup/dialog-image-popup.component';
 
 @NgModule({ 
   declarations: [
@@ -43,7 +44,8 @@ import { PopUpDialogText } from './settings/dialog-text-pop/dialog-text-pop.comp
     FomattedComponent,
     NonformattedComponent,
     PrintComponent,
-    PopUpDialogText
+    PopUpDialogText,
+    DialogImagePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { PopUpDialogText } from './settings/dialog-text-pop/dialog-text-pop.comp
   ],
   entryComponents: [
     PopupEditComponent,
-    PopUpDialogText
+    PopUpDialogText,
+    DialogImagePopupComponent
   ],
   providers: [AuthService, StudyService],
   bootstrap: [AppComponent]

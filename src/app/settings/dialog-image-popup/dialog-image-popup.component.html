@@ -1,0 +1,10 @@
+      <div mat-dialog-content>
+        <p>Imagem:</p>
+        <mat-form-field> 
+          <input matInput name="srcImg" [(ngModel)]="inputImg">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button> 
+        <button mat-button [mat-dialog-close]="dataSaida" cdkFocusInitial>Ok</button>
+      </div>

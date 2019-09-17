@@ -6,10 +6,10 @@ import {PrinterService} from '../service/printer.service';
 import Swal from "sweetalert2";
 import {Printer, PrinterList, PrinterObj} from '../model/printer';
 import { SettingsService } from '../service/settings.service';
-import {map} from 'rxjs/operators';
 
 import { getModalidades, singleDicomTag } from '../model/getModalidades';
 import { PopUpDialogText } from './dialog-text-pop/dialog-text-pop.component';
+import { DialogImagePopupComponent } from './dialog-image-popup/dialog-image-popup.component';
 
 export interface DialogDataText {
   linhaOne: string;
@@ -20,6 +20,7 @@ export interface DialogDataText {
 
 export interface DialogDataImg {
   src: string;
+  clickedId: string;
 }
 
 @Component({
@@ -83,6 +84,9 @@ export class SettingsComponent implements OnInit {
 
   listCabecalho: any[] = [];
   listRodape: any[] = [];
+
+  listCabecalhoImg: any[] = [];
+  listRodapeImg: any[] = [];
 
   constructor(private printerService: PrinterService, private settingsService: SettingsService, private dialog: MatDialog) { }
 
@@ -333,19 +337,15 @@ export class SettingsComponent implements OnInit {
       this.retorno = result;
         if(this.retorno != undefined && this.retorno.clickedId && this.retorno.clickedId != ''){
           
-          console.log(this.retorno.clickeId);
+          console.log(this.retorno.clickedId); 
 
-          setTimeout(() => {
-            console.log(this.retorno.clickeId);
-          }, 3000);
-
-          if(this.retorno.clickeId == '1' || this.retorno.clickeId == '2' || this.retorno.clickeId == '3'){
+          if(this.retorno.clickedId == '1' || this.retorno.clickedId == '2' || this.retorno.clickedId == '3'){
             console.log('Cabeçalho');
 
-            console.log(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId));
+            console.log(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId));
             
-            if(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
-              this.listCabecalho.splice(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            if(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId) != -1){
+              this.listCabecalho.splice(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId), 1, result)
             }else{
               this.listCabecalho.push(result);
             }
@@ -354,22 +354,78 @@ export class SettingsComponent implements OnInit {
             console.log('Rodapé');
             
             
-            if(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
-              this.listRodape.splice(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            if(this.listRodape.findIndex(item => this.retorno.clickedId == item.clickedId) != -1){
+              this.listRodape.splice(this.listRodape.findIndex(item => this.retorno.clickedId == item.clickedId), 1, result)
             }else{
               this.listRodape.push(result);
             }
       
           }
-      
-          console.log(this.listCabecalho);
-          console.log(this.listRodape);
-
       }
-
-      
+      this.montaCabecalho();
+      this.montaRodape();
    });
 
+  }
+
+  retornoImage: any = {};
+
+  openDialogImage(id: string): void {
+    const dialogRef = this.dialog.open(DialogImagePopupComponent, {
+      data: {
+        clickedId: id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.retornoImage = result;
+      if(this.retornoImage != undefined && this.retornoImage && this.retornoImage != ''){
+          
+        console.log(this.retornoImage); 
+
+        if(this.retornoImage.clickedId == '1' || this.retornoImage.clickedId == '2' || this.retornoImage.clickedId == '3'){
+          console.log('Cabeçalho');
+
+          console.log(this.listCabecalhoImg.findIndex(item => this.retornoImage.clickedId == item.clickedId));
+          
+          if(this.listCabecalhoImg.findIndex(item => this.retornoImage.clickedId == item.clickedId) != -1){
+            this.listCabecalhoImg.splice(this.listCabecalhoImg.findIndex(item => this.retornoImage.clickedId == item.clickedId), 1, result)
+          }else{
+            this.listCabecalhoImg.push(result);
+          }
+    
+        }else{
+          console.log('Rodapé');
+          
+          
+          if(this.listRodapeImg.findIndex(item => this.retornoImage.clickedId == item.clickedId) != -1){
+            this.listRodapeImg.splice(this.listRodapeImg.findIndex(item => this.retornoImage.clickedId == item.clickedId), 1, result)
+          }else{
+            this.listRodapeImg.push(result);
+          }
+    
+        }
+        this.montaCabecalhoImg();
+        this.montaRodapeImg();
+      }
+   });
+
+  }
+
+  montaCabecalho(){
+    // 
+  }
+
+  montaRodape(){
+    //
+  }
+
+  montaCabecalhoImg(){
+    //
+  }
+
+  montaRodapeImg(){
+    //
   }
 
 }
