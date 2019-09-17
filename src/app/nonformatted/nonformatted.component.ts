@@ -49,7 +49,7 @@ export class NonformattedComponent implements OnInit {
   }
 
   redirPrint(elemento){
-    this.router.navigate(["home/exam", elemento.accession_number]);
+    this.router.navigate(["home/exam", elemento.patient_fk, elemento.accession_number], {state: {data: {study: elemento.study_id}}});
   }
 
   constructor(private router: Router, private studyService: StudyService, private cdr: ChangeDetectorRef) {

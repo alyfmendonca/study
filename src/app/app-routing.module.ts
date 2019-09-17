@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'nonformatted', component: NonformattedComponent },
       { path: 'print', component: PrintComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'exam/:id', component: ExamComponent }
+      { path: 'exam/:patient/:id', component: ExamComponent }
     ]
   },
   {path: 'forgotpassword', component: ForgotPasswordComponent}

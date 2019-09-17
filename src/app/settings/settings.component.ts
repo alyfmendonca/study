@@ -315,11 +315,12 @@ export class SettingsComponent implements OnInit {
 
   openDialog(id: string): void {
     let modalText = {
-      linhaOne : '',
+      linhaOne : 'Teste',
       linhaTwo: '',
       linhaThree: ''
     }
 
+    
     const dialogRef = this.dialog.open(PopUpDialogText, {
       data: {
         linhaOne: modalText.linhaOne, 
@@ -331,21 +332,22 @@ export class SettingsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.retorno = result;
+      console.log(this.retorno)
         if(this.retorno != undefined && this.retorno.clickedId && this.retorno.clickedId != ''){
           
-          console.log(this.retorno.clickeId);
+          console.log(this.retorno.clickedId);
 
           setTimeout(() => {
-            console.log(this.retorno.clickeId);
+            console.log(this.retorno.clickedId);
           }, 3000);
 
-          if(this.retorno.clickeId == '1' || this.retorno.clickeId == '2' || this.retorno.clickeId == '3'){
+          if(this.retorno.clickedId == '1' || this.retorno.clickedId == '2' || this.retorno.clickedId == '3'){
             console.log('Cabeçalho');
 
-            console.log(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId));
+            console.log(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId));
             
-            if(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
-              this.listCabecalho.splice(this.listCabecalho.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            if(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId) != -1){
+              this.listCabecalho.splice(this.listCabecalho.findIndex(item => this.retorno.clickedId == item.clickedId), 1, result)
             }else{
               this.listCabecalho.push(result);
             }
@@ -354,8 +356,8 @@ export class SettingsComponent implements OnInit {
             console.log('Rodapé');
             
             
-            if(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId) != -1){
-              this.listRodape.splice(this.listRodape.findIndex(item => this.retorno.clickeId == item.clickeId), 1, result)
+            if(this.listRodape.findIndex(item => this.retorno.clickedId == item.clickedId) != -1){
+              this.listRodape.splice(this.listRodape.findIndex(item => this.retorno.clickedId == item.clickedId), 1, result)
             }else{
               this.listRodape.push(result);
             }

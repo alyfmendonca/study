@@ -25,7 +25,7 @@ export class StudyService {
       "study_description": null,
       "modality_id": null,
       "equipment_id": null,
-      "patient_name": "m",
+      "patient_name": null,
       "page_size": 10,
       "page_number": 1
     };
