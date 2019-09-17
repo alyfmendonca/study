@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import {Printer, PrinterList, PrinterObj} from '../model/printer';
 import {ActivatedRoute} from '@angular/router';
 import {Study} from '../model/study';
+import { ExamService } from '../service/exam.service';
 
 export interface Tile {
   color: string;
@@ -109,18 +110,31 @@ export class ExamComponent implements OnInit {
 
   selectedSource:string = "";
 
+  study: Study[] = [];
+
+  patientId = null;
+  studyId = null;
+
   printerColumns: string[] = ['NOME', 'IP', 'TRAY', 'PAPER'];
   printerSource = new MatTableDataSource<Printer>();
 
   constructor(public dialog: MatDialog,
               public studyService: StudyService,
               public printerService:PrinterService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private examService: ExamService) { }
 
   ngOnInit() {
-    let accessionNumber = this.route.snapshot.paramMap.get("id")
+    let accessionNumber = this.route.snapshot.paramMap.get("id");
+    this.patientId = this.route.snapshot.paramMap.get("patient");
+    this.studyId = history.state.data['study'];
+    console.log(this.studyId);
     this.studyService.getStudySeries(accessionNumber)
-      .subscribe(data => this.handleSeries(data));
+      .subscribe(data => {
+        this.handleSeries(data);
+        this.study = data;
+
+      } );
     this.printerService.getPrinters().subscribe(data => {
       this.handlePrinterData(data)
     },
@@ -160,8 +174,6 @@ export class ExamComponent implements OnInit {
     var img;
     var filename;
     var newImage;
-
-
     domtoimage.toPng(node, { bgcolor: '#000' })
 
       .then(function(dataUrl) {
@@ -402,7 +414,7 @@ export class ExamComponent implements OnInit {
 
   }
 
-  chamarImpressao(){
+  chamarSalvar(){
     var node = document.getElementById('divGridSalvar');
 
     var img;
@@ -416,7 +428,7 @@ export class ExamComponent implements OnInit {
 
         img = new Image();
         img.src = dataUrl;
-        console.log(dataUrl);
+
         newImage = img.src;
 
         img.onload = function(){
@@ -444,17 +456,38 @@ export class ExamComponent implements OnInit {
 
           doc.addImage(newImage, 'PNG',  0, 0, width, height);
           filename = 'exame' + '.pdf';
-          doc.save(filename);
+          // console.log(`data:file/pdf;base64,${doc.output('datauri').split(';base64,')[1]}`);
 
-        };
+            this.examService.savesStudy(`data:file/pdf;base64,${doc.output('datauri').split(';base64,')[1]}`,
+                this.patientId.toString())
+                .subscribe(response => {
+                  console.log(response);
+                  this.saveExam();
+            },
+                    error => {
+                        console.log(error)
+                    });
+
+          //doc.save(filename);
+
+        }.bind(this);
 
 
-      })
+      }.bind(this))
       .catch(function(error) {
-
+        console.log(error)
         // Error Handling
 
       });
+  }
+
+  saveExam(){
+    this.examService.savesExam(null, this.studyId).subscribe(response => {
+      console.log(response);
+      Swal.fire('Salvo com sucesso!', '', 'success')
+    }, error2 => {
+      console.log(error2)
+    });
   }
 
   printAction(elemento){

@@ -1,4 +1,5 @@
 export interface Study {
+  study_id: string;
   accession_number: string;
   description: string;
   mod_full_name: string;

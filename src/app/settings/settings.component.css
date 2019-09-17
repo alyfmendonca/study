@@ -151,6 +151,7 @@
     font-size: 14px;
     font-weight: 700;
     color: #004186;
+    min-height: 420px;
 }
 .thirdContent{
     width: 62%;
@@ -246,7 +247,7 @@ table.mat-elevation-z8.aetitleTable.mat-table th{
     border: 1px solid #bdbdbd;
     border-radius: 3px;
     padding: 10px;
-    overflow: scroll; 
+    /* overflow: scroll;  */
     display: flex;
     flex-direction: column;
     align-items: center;

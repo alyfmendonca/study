@@ -319,11 +319,12 @@ export class SettingsComponent implements OnInit {
 
   openDialog(id: string): void {
     let modalText = {
-      linhaOne : '',
+      linhaOne : 'Teste',
       linhaTwo: '',
       linhaThree: ''
     }
 
+    
     const dialogRef = this.dialog.open(PopUpDialogText, {
       data: {
         linhaOne: modalText.linhaOne, 
@@ -335,6 +336,7 @@ export class SettingsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.retorno = result;
+      console.log(this.retorno)
         if(this.retorno != undefined && this.retorno.clickedId && this.retorno.clickedId != ''){
           
           console.log(this.retorno.clickedId); 

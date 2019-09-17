@@ -34,7 +34,7 @@ export class PrinterService {
      body = {
       printer_name:"printer_name",
       printer_ip:"123.123.123.123",
-      printer_tray:"9",
+      printer_tray:"35",
       printer_instituion_site_id:"4",
       printer_is_deleted:"false",
       printer_paper_type:"1"
